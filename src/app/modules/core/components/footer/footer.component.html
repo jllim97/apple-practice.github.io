@@ -1,0 +1,48 @@
+<div class="px-[16px] tablet:px-0">
+<app-overview-options></app-overview-options>
+<app-overview-info></app-overview-info>
+<app-footer-breadcrumbs></app-footer-breadcrumbs>
+<app-sitemap></app-sitemap>
+<div class="pt-[34px] pb-[21px] tracking-wide">
+  <div class="text-[12px] mb-[7px] pb-[8px] border-b max-833:border-none text-footer-text border-footer-border-color">
+    <div class="footer-contact">
+      More ways to shop:
+      <a class="text-footer-href" href="#">Find a retailer </a>
+      near you.
+      <span class="norap">Or call 1800-80-6419.</span>
+    </div>
+
+  </div>
+
+  <div class="text-[12px] flex max-848:flex-col max-848:mt-[5px] max-833:mt-[38px] text-footer-text footer-content relative">
+    <div class="mr-[30px] ">
+      Copyright ©
+      2022
+      Apple Inc. All rights reserved.
+    </div>
+    <div class="flex mr-[30px] flex-wrap items-bottom list-none">
+      <ng-container [ngTemplateOutlet]="footerLink"
+                    [ngTemplateOutletContext]="{link: '#', title:'Privacy Policy'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="footerLink"
+                    [ngTemplateOutletContext]="{link: '#', title:'Terms of Use'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="footerLink"
+                    [ngTemplateOutletContext]="{link: '#', title:'Sales and Refunds'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="footerLink"
+                    [ngTemplateOutletContext]="{link: '#', title:'Legal'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="footerLink"
+                    [ngTemplateOutletContext]="{link: '#', title:'Site Map', isLast: true}"></ng-container>
+    </div>
+    <div class="locale absolute right-0 max-833:left-0 max-833:top-[-32px]">
+      <a class="text-footer-link hover:underline cursor-pointer">
+        Malaysia
+      </a>
+    </div>
+  </div>
+</div>
+</div>
+<ng-template #footerLink let-title="title" let-link="link" let-isLast="isLast">
+  <li>
+    <a class="mr-[7px] text-footer-link border-r pr-[10px] nowrap hover:underline" [ngClass]="{'border-none': isLast}"
+       [href]="link">{{title}}</a>
+  </li>
+</ng-template>

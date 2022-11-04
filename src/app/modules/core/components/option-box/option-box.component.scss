@@ -1,0 +1,35 @@
+.option-shipping {
+  width: 100%;
+  height: 56px;
+  background-size: 100% 56px;
+  background-repeat: no-repeat;
+  background-image: url("https://www.apple.com/ac/globalfooter/7/en_MY/assets/ac-buystrip/shipping/icon_large.svg");
+}
+
+.option-personalize {
+  width: 100%;
+  height: 56px;
+  background-size: 100% 56px;
+  background-repeat: no-repeat;
+  background-image: url("https://www.apple.com/ac/globalfooter/7/en_MY/assets/ac-buystrip/engraving/icon_large.svg");
+}
+
+.option-help {
+  width: 100%;
+  height: 56px;
+  background-size: 100% 56px;
+  background-repeat: no-repeat;
+  background-image: url("https://www.apple.com/ac/globalfooter/7/en_MY/assets/ac-buystrip/help/icon_large.svg");
+}
+
+.learn-more-link {
+  ::after {
+
+  }
+}
+
+.option-box-link :hover{
+  .learn-more-link {
+    @apply underline
+  }
+}

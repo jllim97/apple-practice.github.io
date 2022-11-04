@@ -1,0 +1,9 @@
+.box-wrapper {
+  z-index: 1;
+  @apply pt-[56px]
+}
+
+.inner-wrapper {
+  width: 216px;
+  @apply mx-auto
+}

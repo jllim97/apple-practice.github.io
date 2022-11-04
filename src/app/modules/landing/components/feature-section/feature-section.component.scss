@@ -1,0 +1,31 @@
+.icon-environment {
+  @media only screen and (max-width: 1068px) {
+    @apply w-[49px]
+  }
+  @media only screen and (max-width: 734px) {
+    @apply w-full
+  }
+  @apply w-[46px]
+}
+
+.title-row {
+  @apply flex items-center mb-[23px]
+}
+
+.feature-box {
+ @apply my-[44px]
+}
+
+.feature-wrapper {
+  @media only screen and (max-width: 1068px) {
+    @apply pt-[92px] pb-[74px]
+  }
+  @media only screen and (max-width: 734px) {
+    @apply pt-[70px] pb-0 px-0 max-w-[362px]
+  }
+  @apply mx-auto pt-[88px] pb-[94px]
+}
+//
+//.feature-box:nth-child(odd) {
+//  padding-right: 3.33%
+//}

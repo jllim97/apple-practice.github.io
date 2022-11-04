@@ -1,0 +1,144 @@
+
+
+.product-name {
+  line-height: 1.1666666667;
+}
+
+.new-text {
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  @apply absolute
+}
+.image-ipad-pro {
+  background-image: url('../../../../../assets/images/ipad-pro.png');
+  width: 167px;
+  height: 191px;
+  background-size: 167px 191px;
+  @media only screen and (max-width: 734px) {
+    width: 122px;
+    height: 139px;
+    background-size: 122px 139px;
+  }
+  @apply bg-no-repeat
+}
+
+.image-ipad-air {
+  width: 122px;
+  height: 168px;
+  background-size: 122px 168px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-air.png');
+  @media only screen and (max-width: 734px) {
+    width: 89px;
+    height: 123px;
+    background-size: 89px 123px;
+  }
+}
+
+.image-ipad {
+  width: 122px;
+  height: 168px;
+  background-size: 122px 168px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad.png');
+
+  @media only screen and (max-width: 734px) {
+    width: 90px;
+    height: 123px;
+    background-size: 90px 123px;
+  }
+}
+
+.image-ipad-9 {
+  width: 119px;
+  height: 170px;
+  background-size: 119px 170px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-9.png');
+
+  @media only screen and (max-width: 734px) {
+    width: 87px;
+    height: 124px;
+    background-size: 87px 124px;
+  }
+}
+
+.image-ipad-mini {
+  width: 93px;
+  height: 134px;
+  background-size: 93px 134px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-mini.png');
+
+  @media only screen and (max-width: 734px) {
+    width: 68px;
+    height: 98px;
+    background-size: 68px 98px;
+  }
+}
+
+.options {
+  @apply mb-[31px]
+}
+
+.ipad-pro-options {
+  background-image: url('../../../../../assets/images/ipad-pro-options.png');
+  width: 32px;
+  height: 14px;
+  background-size: 32px 14px;
+  @apply bg-no-repeat
+}
+
+.ipad-air-options {
+  width: 85px;
+  height: 14px;
+  background-size: 85px 14px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-air-options.png');
+}
+
+.ipad-options {
+  width: 68px;
+  height: 14px;
+  background-size: 68px 14px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-options.png')
+}
+
+.ipad-9-options {
+  width: 32px;
+  height: 14px;
+  background-size: 32px 14px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-9-options.png');
+}
+
+.ipad-mini-options {
+  width: 68px;
+  height: 14px;
+  background-size: 68px 14px;
+  background-repeat: no-repeat;
+  background-image: url('../../../../../assets/images/ipad-mini-options.png');
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {
+  .image-ipad-pro {
+    background-image: url('../../../../../assets/images/ipad-pro.png');
+  }
+  .ipad-pro-options {
+    background-image: url('../../../../../assets/images/ipad-pro-options.png');
+  }
+}
+
+.tagline {
+  line-height: 1.4285914286;
+}
+
+.description {
+  line-height: 1.4285914286;
+}
+
+.description-ipad-pro {
+  //width: 167px;
+}

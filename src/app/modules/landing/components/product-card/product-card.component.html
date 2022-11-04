@@ -1,0 +1,45 @@
+<div class="flex flex-col items-center h-full" >
+  <div class="flex flex-col items-center" [ngClass]="isHalf ? 'max-734:w-1/2' : ''">
+    <div class="image-wrapper flex justify-end items-center flex-col mt-0 mb-[23px]
+     max-1068:mt-[30px] max-1068:mb-[16px] max-734:mt-[7px] max-734:mb-[17px] min-h-[191px] max-734:min-h-[139px]">
+      <a>
+        <figure [ngClass]="'image-' + imageName"></figure>
+      </a>
+    </div>
+
+    <div class="color-options-wrapper">
+      <figure class="options" [ngClass]="colorOptions + '-options'"></figure>
+    </div>
+
+    <div class="product-name text-center font-semibold tracking-[0.009em]" [ngClass]="{'mb-[7px]': generation}">
+      <h3 class="relative text-[24px] max-734:text-[21px]">
+        <span class="text-[#bf4800] new-text text-xs font-normal tracking-[-0.011em]">{{isNew ? 'New' : ''}}</span>
+        {{productName}}
+        <span
+          class="generation block mt-[1px] text-[14px] max-734:text-[12px] tracking-[-0.008em] font-semibold tagline">{{generation ?? ''}}</span>
+      </h3>
+    </div>
+    <div class="description-wrapper text-center" [ngClass]="generation ? 'mt-[5px]' : 'mt-[32px]'">
+      <p class="text-[14px] max-734:text-[12px] description font-semibold mx-auto" [ngClass]="'description-' + imageName">
+        {{description}}
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-col items-center mt-auto">
+    <div class="price-wrapper max-734:mt-[11px] mt-[7px] ">
+      <p class="price-content mt-[16px] text-xs font-normal tracking-[-0.01em]">
+        <span>{{price}}</span>
+      </p>
+    </div>
+    <div class="nav-button text-xs">
+      <a href="#" class="mt-[14px] mb-[12px] cursor-pointer inline-block text-center whitespace-nowrap
+     rounded-[980px] bg-primary text-white px-[11px] py-[4px]">{{buttonTitle}}</a>
+    </div>
+    <div class="text-footer-href text-[14px]">
+      <span class="hover:underline">Learn more</span>
+      <svg class="inline-block stroke-footer-href" xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+        <path d="m8 15-1.062-1.062L10.875 10 6.938 6.062 8 5l5 5Z"/>
+      </svg>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.sticky-header {
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
+.ipad-title {
+  height: 52px;
+  font-weight: 600;
+  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  letter-spacing: 0.011em;
+  @apply text-[21px]
+}
+
+.price-value {
+  font-weight: 600;
+  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  letter-spacing: 0.011em;
+  @apply text-[17px]}
+
+.nav-link {
+  font-size: 1em;
+}

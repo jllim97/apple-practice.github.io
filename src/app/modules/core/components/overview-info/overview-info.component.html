@@ -1,0 +1,21 @@
+<section class="pt-[17px] pb-[11px] border-t border-b border-footer-border-color">
+  <ol class="list-decimal tracking-normal info-notes px-[17px]" style="list-style-position: outside">
+    <ng-container [ngTemplateOutlet]="note"
+                  [ngTemplateOutletContext]="{'text': 'The display has rounded corners. When measured as a rectangle, the iPad screen is 10.86&nbsp;inches diagonally. Actual viewable area is less.'}"></ng-container>
+    <ng-container [ngTemplateOutlet]="note"
+                  [ngTemplateOutletContext]="{'text': 'Apple Pencil (1st generation), Magic Keyboard Folio, Smart Folio and other accessories are sold separately and are subject to availability. USB-C to Apple Pencil Adapter is required to work with iPad (10th generation).'}"></ng-container>
+    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Battery life varies by use and configuration. See apple.com/my/batteries for more information.'}"></ng-container>
+    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Data plan is required. 4G LTE Advanced and 4G LTE are available in selected markets and through selected carriers. Speeds are based on theoretical throughput and vary based on site conditions and carrier. For details on LTE support, contact your carrier and see apple.com/my/ipad/cellular.'}"></ng-container>
+    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Freeform is coming to iPadOS 16 in an update later this year.'}"></ng-container>
+  </ol>
+  <ul class="list-none">
+    <li class="note pb-[0.8em] text-[12px] text-footer-text font-normal">
+      Some features may not be available for all countries or all areas. <a class="text-footer-link hover:underline cursor-pointer"> View the complete list.</a>
+    </li>
+    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Apps are available on the App Store. Title availability is subject to change.\n'}"></ng-container>
+  </ul>
+</section>
+
+<ng-template #note let-text="text">
+  <li class="note pb-[0.8em] text-[12px] text-footer-text font-normal">{{text}}</li>
+</ng-template>

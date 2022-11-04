@@ -1,0 +1,27 @@
+.section-right-for-you {
+
+  @media only screen and (max-width: 1068px) {
+    @apply pt-[105px] pb-[144px]
+  }
+  @media only screen and (max-width: 734px) {
+    @apply pt-[66px] pb-[60px]
+  }
+
+  @apply pt-[100px] pb-[82px]
+}
+
+.compare-box {
+  @media only screen and (max-width: 1068px) {
+    max-width: 500px;
+    @apply mt-[40px]
+  }
+  @media only screen and (max-width: 734px) {
+    max-width: 280px;
+    @apply mt-[57px]
+  }
+
+  max-width: 940px;
+  @apply mt-[68px];
+
+}
+

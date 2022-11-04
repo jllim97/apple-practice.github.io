@@ -1,0 +1,47 @@
+<div class="main-nav "
+     [ngClass]="{'z-10 bg-black h-screen overlay': isCloseVisible, 'bg-black-1 tablet:header mobile-header': !isCloseVisible }">
+
+  <div class="content h-full mx-auto text-white w-full tablet:header-content mobile-header-content">
+    <ul class="tablet:flex box-border hidden py-2 justify-between h-full w-full items-center">
+
+      <ng-container *ngFor="let header of headerList" [ngTemplateOutlet]="navLink"
+                    [ngTemplateOutletContext]="{title: header?.title, link: header?.link, isIcon: header?.isIcon}"></ng-container>
+    </ul>
+
+    <div class="flex list-none tablet:hidden content mx-auto py-2 justify-between h-full items-center">
+      <li *ngIf="!isCloseVisible;else closeButton" (click)="triggerDrawer()"
+          class="text-[12px] opacity-80 hover:opacity-100 px-2">
+      <span
+        class="material-symbols-outlined">
+drag_handle
+</span>
+      </li>
+      <ng-template #closeButton>
+        <li class="text-[12px] opacity-80 hover:opacity-100 px-2" (click)="triggerClose()">
+        <span
+          class="material-symbols-outlined">
+close
+</span>
+        </li>
+      </ng-template>
+      <li class="text-[12px] opacity-80 hover:opacity-100 px-2">A</li>
+      <li class="text-[12px] opacity-80 hover:opacity-100 px-2">
+      <span [ngClass]="{'opacity-0':isCloseVisible}" class="material-symbols-outlined">
+shopping_bag
+</span>
+      </li>
+    </div>
+  </div>
+
+  <app-mobile-drawer *ngIf="isCloseVisible"></app-mobile-drawer>
+</div>
+
+
+<ng-template #navLink let-title="title" let-link="link" let-isIcon="isIcon">
+
+    <li class="logo-item first:pl-0 last:pr-0 px-[8px] opacity-80 hover:opacity-100">
+      <a href="/my/" [ngClass]="'link-' + title"
+         class="logo-link"><span>{{title}}</span></a></li>
+
+</ng-template>
+

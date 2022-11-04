@@ -1,0 +1,41 @@
+<section class="section-content max-1068:section-content-1068 max-734:section-content-734">
+  <div class="flex feature-wrapper flex-wrap">
+    <ng-container [ngTemplateOutlet]="box" [ngTemplateOutletContext]="{src:'assets/images/icon_environment.png',title:'Environment',description:'Apple is carbon‑neutral. And by 2030, all of our products will be too. We’re committed to one day sourcing 100&nbsp;per&nbsp;cent\n'+
+'        recycled and renewable materials across our products and packaging, all with clean energy and no carbon footprint.',linkText:'Apple and the environment'}"></ng-container>
+
+    <ng-container [ngTemplateOutlet]="box"
+                  [ngTemplateOutletContext]="{src:'assets/images/icon_environment.png',title:'Privacy',description:'Like every Apple product, iPad was designed with your privacy and security in mind. It’s not always easy. But that’s the kind of innovation we believe in.',linkText:'Learn more about our approach to privacy'}"></ng-container>
+
+    <ng-container [ngTemplateOutlet]="box"
+                  [ngTemplateOutletContext]="{src:'assets/images/icon_accessibility.png',title:'Accessibility',description:'Technology is most powerful when everyone can use it. That’s why iPad comes with accessibility features that support vision, hearing, mobility and cognitive needs.',linkText:'Explore all accessibility features'}"></ng-container>
+
+    <ng-container [ngTemplateOutlet]="box" [ngTemplateOutletContext]="{src:'assets/images/icon_accessories.png',title:'Accessories',description:'Explore keyboards, cases, covers, Apple Pencil, AirPods and more.',linkText:'Shop iPad accessories'}"></ng-container>
+  </div>
+</section>
+
+<ng-template #box let-src="src" let-title="title" let-description="description" let-linkText="linkText"
+             let-index="index">
+  <div class="feature-box box-border max-734:text-center odd:max-1068:pr-0 even:max-1068:pl-0 odd:pr-[3.3333333333%] even:pl-[3.3333333333%] basis-1/2 max-1068:basis-full">
+    <div class="title-row max-734:basis-full flex max-734:flex-col">
+      <picture class="icon-environment">
+        <img class="mx-auto max-734:mb-[10px] max-1068:w-[27px] max-734:w-[23px]"  [src]="src" alt="environment"/>
+      </picture>
+      <h2 class="feature-title">
+        {{title}}
+      </h2>
+    </div>
+    <div class="max-1068:ml-[11px] max-1068:pr-[24px] basis-full max-1068:basis-5/6 max-1068:max-w-5/6 max-734:ml-0 max-734:pr-0 max-734:text-center max-734:max-w-full max-734:basis-full">
+      <p class="feature-description">
+        {{description}}
+      </p>
+      <p class="mt-[0.8em]">
+        <a>
+          <span class="feature-href cursor-pointer hover:underline">{{linkText}}</span>
+          <svg class="inline-block stroke-footer-href" xmlns="http://www.w3.org/2000/svg" height="20" width="20">
+            <path d="m8 15-1.062-1.062L10.875 10 6.938 6.062 8 5l5 5Z"/>
+          </svg>
+        </a>
+      </p>
+    </div>
+  </div>
+</ng-template>

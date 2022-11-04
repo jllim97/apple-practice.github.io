@@ -1,0 +1,32 @@
+  <div #webSitemap class="hidden tablet:flex w-full">
+    <div class="flex-1">
+    <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: shopAndLearn}"></ng-container>
+    </div>
+    <div class="flex-1">
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: services}"></ng-container>
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: account, addTopPadding: true}"></ng-container>
+    </div>
+    <div class="flex-1">
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: appleStore}"></ng-container>
+    </div>
+    <div class="flex-1">
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forBusiness}"></ng-container>
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forEducation, addTopPadding: true }"></ng-container>
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forHealthCare, addTopPadding: true}"></ng-container>
+    </div>
+    <div class="flex-1">
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: appleValues}"></ng-container>
+      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: aboutApple, addTopPadding: true}"></ng-container>
+    </div>
+  </div>
+
+<ng-template #section let-model="model" let-addTopPadding="addTopPadding">
+  <div class="dir-section text-xs" [ngClass]="{'pt-[24px]': addTopPadding}">
+    <h3 class="mr-[20px] mb-[0.8em] text-footer-category font-bold">{{model.category}}</h3>
+    <ul class="list-none mr-[20px]">
+      <li  class="last:mb-0 mb-[0.8em] text-xs text-footer-link tracking-wide hover:underline cursor-pointer" *ngFor="let link of model.children">
+        <a class="">{{link.title}}</a>
+      </li>
+    </ul>
+  </div>
+</ng-template>

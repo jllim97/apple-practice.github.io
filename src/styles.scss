@@ -1,1 +1,204 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: unset;
+  }
+
+  h2+* {
+    @apply mt-[0.8em];
+  }
+}
+
+@layer utilities {
+
+  .feature-title {
+    line-height: 1.0714285714;
+    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    @media only screen and (max-width: 1068px) {
+      @apply text-[44px]
+    }
+    @media only screen and (max-width: 734px) {
+      @apply text-[40px]
+    }
+      @apply text-[56px] font-semibold tracking-[-0.005em] text-footer-category
+  }
+
+  .feature-description {
+    line-height: 1.4211026316;
+    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    @media only screen and (max-width: 1068px) {
+      @apply text-[17px]
+    }
+    @apply text-footer-category text-[19px] font-normal tracking-[0.0075em]
+  }
+
+  .feature-href {
+    line-height: 1.4211026316;
+    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    @media only screen and (max-width: 1068px) {
+      @apply text-[17px]
+    }
+    @apply text-footer-href text-[19px] font-normal tracking-[0.0075em]
+  }
+
+  .content {
+    max-width: 980px;
+  }
+
+  .header {
+    @apply h-[44px];
+  }
+
+  .mobile-header {
+    @apply h-[48px];
+  }
+
+  .header-content {
+    @apply h-[44px]
+  }
+
+  .mobile-header-content {
+    @apply h-[48px]
+  }
+
+  .mobile-stick {
+    top: 48px;
+  }
+
+  .stick {
+    top: 44px;
+  }
+
+  .section-container {
+    overflow:hidden;
+    @apply bg-black-2 px-[25px]
+  }
+
+  .section-box {
+    max-width: 1390px;
+    box-sizing: border-box;
+    overflow: hidden;
+    @apply mx-auto
+    h-full
+    relative
+    bg-white
+    rounded-[30px]
+  }
+
+  .section-box-1068 {
+    @apply rounded-[25px]
+  }
+
+  .section-box-734 {
+    max-width: 400px;
+    @apply rounded-[20px]
+  }
+
+  .section-box-374 {
+    @apply rounded-[0px]
+  }
+
+  .section-content {
+    width: 980px;
+    @apply mx-auto
+  }
+
+  .section-content-1068{
+    width: 692px;
+  }
+
+  .section-content-734 {
+    width:87.5%
+  }
+
+  .section-headline {
+    line-height: 1.0714285714;
+    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    @media only screen and (max-width: 1068px) {
+      line-height: 1.0909090909;
+      @apply text-[44px] tracking-[0.002em]
+    }
+    @media only screen and (max-width: 734px) {
+      line-height: 1.1;
+      @apply text-[40px] tracking-[0em] mb-[10px] mx-auto
+    }
+    @apply text-[56px] font-semibold tracking-[-0.005em] mt-[26px] max-w-[420px]
+  }
+
+  .section-normal-text {
+    line-height: 1.4211026316;
+    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    @media only screen and (max-width: 1068px) {
+      line-height: 1.4705882353;
+      @apply text-[17px] tracking-[-0.002em] pr-0
+    }
+
+    @media only screen and (max-width: 734px) {
+      @apply my-0 mx-auto
+    }
+
+    @apply text-[19px] tracking-[.0075em] font-normal pr-[80px] max-w-[270px]
+  }
+
+}
+
+.sticky-header-nav-link {
+  @apply text-[12px]
+  text-black
+  ml-[24px]
+  opacity-[.88]
+  font-normal
+}
+
+.sticky-header-nav-link:hover {
+  color: #06c;
+  @apply opacity-100
+}
+
+.sticky-header-nav-link {
+  &.disabled {
+    @apply text-black
+    opacity-[.56]
+    cursor-default
+  }
+}
+
+.nav-link-button {
+  @apply text-[12px]
+  border
+  rounded-full
+  bg-primary
+  border-primary
+  text-white
+  pr-[11px]
+  pl-[10px]
+  pb-[2px]
+  pt-[6px]
+  cursor-pointer
+  font-normal
+}
+
+.nav-link-button:hover {
+  background: #147ce5;
+}
+
+.nav-link-button:active {
+  background: #0068d1;
+}
+
+//html {
+//  ::-webkit-scrollbar {
+//    display: none;
+//  }
+//
+//  -ms-overflow-style: none;
+//  scrollbar-width: none;
+//}
+
+a {
+  @apply cursor-pointer
+}

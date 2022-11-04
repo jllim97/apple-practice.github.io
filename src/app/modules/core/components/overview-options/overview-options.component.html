@@ -1,0 +1,27 @@
+<div class="flex flex-row flex-wrap border-b border-footer-border-color pb-[56px]">
+  <ng-container [ngTemplateOutlet]="optionBoxTemplate"
+                [ngTemplateOutletContext]="{title:'Free Delivery', description:'Get free delivery, straight to your door.', image:'shipping'}"></ng-container>
+  <ng-container [ngTemplateOutlet]="optionBoxTemplate"
+                [ngTemplateOutletContext]="{title:'Personalise it', description:'Engrave your iPad with your name or a personal note — free. Only at&nbsp;Apple.', image:'personalize'}"></ng-container>
+  <div class="flex-1 box-wrapper">
+    <div class="inner-wrapper">
+      <app-option-box [image]="'help'" [title]="'Get help buying'" [linkTitle]="'Contact Us'">
+        <p>
+          Have a question? Call a
+          <br>
+          Specialist or chat&nbsp;online.
+        </p>
+        <p>Call 1800-80-6417.</p>
+      </app-option-box>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #optionBoxTemplate let-image="image" let-title="title" let-description="description">
+  <div class="flex-1 box-wrapper">
+    <div class="inner-wrapper">
+      <app-option-box [image]="image" [title]="title" [description]="description"></app-option-box>
+    </div>
+  </div>
+</ng-template>
