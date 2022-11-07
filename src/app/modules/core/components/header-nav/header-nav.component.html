@@ -8,7 +8,7 @@
                     [ngTemplateOutletContext]="{title: header?.title, link: header?.link, isIcon: header?.isIcon}"></ng-container>
     </ul>
 
-    <div class="flex list-none tablet:hidden content mx-auto py-2 justify-between h-full items-center">
+    <div class="flex list-none box-border tablet:hidden content mx-auto py-2 justify-between h-full items-center">
       <li *ngIf="!isCloseVisible;else closeButton" (click)="triggerDrawer()"
           class="text-[12px] opacity-80 hover:opacity-100 px-2">
       <span

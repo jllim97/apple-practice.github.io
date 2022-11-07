@@ -8,7 +8,7 @@
     box-sizing: unset;
   }
 
-  h2+* {
+  h2 + * {
     @apply mt-[0.8em];
   }
 }
@@ -17,19 +17,19 @@
 
   .feature-title {
     line-height: 1.0714285714;
-    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     @media only screen and (max-width: 1068px) {
       @apply text-[44px]
     }
     @media only screen and (max-width: 734px) {
       @apply text-[40px]
     }
-      @apply text-[56px] font-semibold tracking-[-0.005em] text-footer-category
+    @apply text-[56px] font-semibold tracking-[-0.005em] text-footer-category
   }
 
   .feature-description {
     line-height: 1.4211026316;
-    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     @media only screen and (max-width: 1068px) {
       @apply text-[17px]
     }
@@ -38,7 +38,7 @@
 
   .feature-href {
     line-height: 1.4211026316;
-    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     @media only screen and (max-width: 1068px) {
       @apply text-[17px]
     }
@@ -74,7 +74,7 @@
   }
 
   .section-container {
-    overflow:hidden;
+    overflow: hidden;
     @apply bg-black-2 px-[25px]
   }
 
@@ -107,17 +107,17 @@
     @apply mx-auto
   }
 
-  .section-content-1068{
+  .section-content-1068 {
     width: 692px;
   }
 
   .section-content-734 {
-    width:87.5%
+    width: 87.5%
   }
 
   .section-headline {
     line-height: 1.0714285714;
-    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     @media only screen and (max-width: 1068px) {
       line-height: 1.0909090909;
       @apply text-[44px] tracking-[0.002em]
@@ -131,7 +131,7 @@
 
   .section-normal-text {
     line-height: 1.4211026316;
-    font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     @media only screen and (max-width: 1068px) {
       line-height: 1.4705882353;
       @apply text-[17px] tracking-[-0.002em] pr-0
@@ -201,4 +201,43 @@
 
 a {
   @apply cursor-pointer
+}
+
+:root {
+
+  @media only screen and (max-width: 1068px) {
+    --footer-tile-border-radius: 25px;
+    --footer-tile-spacing: 20px;
+    --footer-tile-content-width: 690px;
+    --accessories-tile-height: 500px;
+  }
+  @media only screen and (max-width: 833px) {
+    --r-localnav-height: 48px;
+    --r-localnav-stacked-height: 63px;
+    --r-localnav-gn-height: var(--r-globalnav-height, 48px);
+  }
+  @media only screen and (max-width: 734px) {
+    --footer-tile-border-radius: 20px;
+    --footer-tile-spacing: 15px;
+    --footer-tile-width: 400px;
+    --footer-tile-content-width: none;
+    --accessories-tile-height: none;
+  }
+  --r-localnav-height: 52px;
+  --r-localnav-stacked-height: 66px;
+  --r-localnav-gn-height: var(--r-globalnav-height, 44px);
+  --r-localnav-viewport-large-min-width: 1024px;
+  --r-localnav-viewport-large-query: (min-width: 1024px);
+  --r-localnav-viewport-medium-min-width: 834px;
+  --r-localnav-viewport-medium-max-width: 1023px;
+  --r-localnav-viewport-medium-query: (min-width: 834px);
+  --r-localnav-viewport-small-min-width: 320px;
+  --r-localnav-viewport-small-max-width: 833px;
+  --r-localnav-viewport-small-query: (min-width: 320px);
+  --footer-tile-border-radius: 30px;
+  --footer-tile-spacing: 25px;
+  --footer-tile-side-spacing: var(--footer-tile-spacing);
+  --footer-tile-content-width: 980px;
+  --footer-tile-width: 1390px;
+  --accessories-tile-height: 600px;
 }

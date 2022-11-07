@@ -41,7 +41,8 @@ module.exports = {
         'footer-href': '#0066cc',
         'black-2': '#f5f5f7',
         'footer-border-color': '#d2d2d7',
-        'sticky-header': 'rgba(255,255,255,0.72)'
+        'sticky-header': 'rgba(255,255,255,0.72)',
+        'nav-link-color':'#06c'
       },
       fontFamily: {
         'sans': ["SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",'sans-serif', ...defaultTheme.fontFamily.sans]

@@ -1,30 +1,77 @@
-  <div #webSitemap class="hidden tablet:flex w-full">
-    <div class="flex-1">
+<div #webSitemap class="hidden tablet:flex w-full">
+  <div class="flex-1">
     <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: shopAndLearn}"></ng-container>
-    </div>
-    <div class="flex-1">
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: services}"></ng-container>
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: account, addTopPadding: true}"></ng-container>
-    </div>
-    <div class="flex-1">
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: appleStore}"></ng-container>
-    </div>
-    <div class="flex-1">
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forBusiness}"></ng-container>
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forEducation, addTopPadding: true }"></ng-container>
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forHealthCare, addTopPadding: true}"></ng-container>
-    </div>
-    <div class="flex-1">
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: appleValues}"></ng-container>
-      <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: aboutApple, addTopPadding: true}"></ng-container>
-    </div>
   </div>
+  <div class="flex-1">
+    <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: services}"></ng-container>
+    <ng-container [ngTemplateOutlet]="section"
+                  [ngTemplateOutletContext]="{model: account, addTopPadding: true}"></ng-container>
+  </div>
+  <div class="flex-1">
+    <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: appleStore}"></ng-container>
+  </div>
+  <div class="flex-1">
+    <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: forBusiness}"></ng-container>
+    <ng-container [ngTemplateOutlet]="section"
+                  [ngTemplateOutletContext]="{model: forEducation, addTopPadding: true }"></ng-container>
+    <ng-container [ngTemplateOutlet]="section"
+                  [ngTemplateOutletContext]="{model: forHealthCare, addTopPadding: true}"></ng-container>
+  </div>
+  <div class="flex-1">
+    <ng-container [ngTemplateOutlet]="section" [ngTemplateOutletContext]="{model: appleValues}"></ng-container>
+    <ng-container [ngTemplateOutlet]="section"
+                  [ngTemplateOutletContext]="{model: aboutApple, addTopPadding: true}"></ng-container>
+  </div>
+</div>
+
+
+<!--  <div #mobileSitemap class="flex tablet:hidden flex-col flex-wrap">-->
+<!--    <div class="relative" *ngFor="let sitemap of mobileSitemaps;trackBy: trackyBy">-->
+<!--      <div class="collapsible-wrapper relative border-b border-footer-border-color z-10 cursor-auto" [ngClass]="{'state-checked': sitemap.checked}"-->
+<!--           (click)="onClick(sitemap.category)">-->
+<!--        <h3 class="mobile-sitemap-title font-normal m-0 py-[10px] z-20 text-[12px] bg-black-2 text-footer-text">-->
+<!--          {{sitemap.category}}-->
+<!--        </h3>-->
+<!--        <ul class="mobile-sitemap-list" [ngClass]="{'checked': sitemap.checked}">-->
+<!--          <li *ngFor="let child of sitemap.children">-->
+<!--            {{child.title}}-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+
+<div #mobileSitemap class="flex tablet:hidden z-[2] flex-col flex-wrap">
+  <ng-container *ngFor="let sitemap of mobileSitemaps;trackBy: trackyBy">
+    <div class=" overflow-hidden">
+      <div class="collapsible-wrapper relative  z-[2] cursor-auto border-b border-footer-border-color"
+           (click)="onClick(sitemap.category)">
+        <h3 class="mobile-sitemap-title font-normal m-0 py-[10px] z-[2] text-[12px] bg-black-2 "
+            [ngClass]="{'state-checked text-black': sitemap.checked,'text-footer-text': !sitemap.checked}"
+        >
+          {{sitemap.category}}
+        </h3>
+
+      </div>
+      <ul class="mobile-sitemap-list" [ngClass]="{'checked': sitemap.checked}">
+        <li class="mb-0 block cursor-auto" *ngFor="let child of sitemap.children">
+          <a class="px-[14px] hover:underline text-[12px] py-[6px] text-footer-link block">
+            {{child.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</div>
+
 
 <ng-template #section let-model="model" let-addTopPadding="addTopPadding">
   <div class="dir-section text-xs" [ngClass]="{'pt-[24px]': addTopPadding}">
     <h3 class="mr-[20px] mb-[0.8em] text-footer-category font-bold">{{model.category}}</h3>
     <ul class="list-none mr-[20px]">
-      <li  class="last:mb-0 mb-[0.8em] text-xs text-footer-link tracking-wide hover:underline cursor-pointer" *ngFor="let link of model.children">
+      <li class="last:mb-0 mb-[0.8em] text-xs text-footer-link tracking-wide hover:underline cursor-pointer"
+          *ngFor="let link of model.children">
         <a class="">{{link.title}}</a>
       </li>
     </ul>

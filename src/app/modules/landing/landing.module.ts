@@ -9,6 +9,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { FeatureSectionComponent } from './components/feature-section/feature-section.component';
 import { ArPreviewComponent } from './components/ar-preview/ar-preview.component';
 import { SectionAppComponent } from './components/section-app/section-app.component';
+import { SectionHeroComponent } from './section-hero/section-hero.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SectionAppComponent } from './components/section-app/section-app.compon
     FeatureSectionComponent,
     ArPreviewComponent,
     SectionAppComponent,
+    SectionHeroComponent,
   ],
   imports: [
     CommonModule,

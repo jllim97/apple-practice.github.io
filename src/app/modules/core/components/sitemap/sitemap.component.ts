@@ -6,7 +6,8 @@ export interface LinkModel {
 }
 export interface SiteMapModel {
   category: string;
-  children: Array<LinkModel>
+  children: Array<LinkModel>;
+  checked?: boolean;
 }
 
 
@@ -16,6 +17,7 @@ export interface SiteMapModel {
   styleUrls: ['./sitemap.component.scss']
 })
 export class SitemapComponent implements OnInit {
+
 
   shopAndLearn: SiteMapModel = {
     category: 'Shop and Learn',
@@ -234,9 +236,35 @@ export class SitemapComponent implements OnInit {
       },
     ]
   }
+
+  mobileSitemaps: Array<SiteMapModel> = [
+    this.shopAndLearn,
+    this.services,
+    this.account,
+    this.appleStore,
+    this.forBusiness,
+    this.forEducation,
+    this.forHealthCare,
+    this.appleValues,
+    this.aboutApple
+  ]
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(category: string) {
+    this.mobileSitemaps = this.mobileSitemaps.map(sitemap => {
+      if(sitemap.category === category) {
+        sitemap.checked = !sitemap.checked
+      }
+      return sitemap;
+    });
+    console.log(category)
+  }
+
+  trackyBy(index:number, item:any) {
+    return index;
   }
 
 }
