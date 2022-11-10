@@ -1,0 +1,32 @@
+<div #wrapper class="collapsible">
+  <div class="collapse-header-fade " [ngClass]="{'enter': isCollapsed, 'exited': !isCollapsed, 'is-first': isFirst}"
+       (click)="onFadeHeaderClicked()">
+    <div class="collapse-header-fade-text cursor-pointer">
+        {{selectedOption}}<ng-container *ngIf="isStorage">GB<sup>1</sup>
+    </ng-container>
+
+    </div>
+    <button class="collapse-header-fade-button hover:underline">
+      Change
+    </button>
+  </div>
+  <div class="collapse-header-height"  #heightWrapper
+       [ngClass]="{'enter': !isCollapsed, 'height-collapsed': isCollapsed, 'disabled': isDisable}">
+    <div #collapseContent class="collapse-header-height-content">
+      <div class="collapse-header-height-inner collapse-fade-wrapper" [ngClass]="{'enter': !isCollapsed, 'disabled': isDisable}">
+        <div>
+          <div>
+            <fieldset class="collapse-fieldset mt-0 px-0 pt-0 pb-[26px]">
+              <legend>
+                <h2 class="collapse-legend-heading" [ngClass]="{'enter': !isCollapsed, 'is-first': isFirst}">
+                  <span class="option-title">{{legend}}</span>
+                </h2>
+              </legend>
+              <ng-content></ng-content>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

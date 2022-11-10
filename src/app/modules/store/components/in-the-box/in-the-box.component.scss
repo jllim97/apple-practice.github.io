@@ -1,0 +1,81 @@
+.box-title {
+  line-height: 1.1;
+}
+
+.in-the-box-content {
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply w-[87.5%] pb-[46px]
+  }
+  @apply w-[980px] pb-[48px] max-w-[980px] mx-auto
+}
+
+.in-the-box-image-list {
+  @apply m-0 list-none justify-around   w-full flex-row
+}
+
+.in-the-box-image-item {
+  @apply text-center grow m-0 p-0
+}
+
+.box-image-wrapper {
+  img {
+    @apply inline-block
+  }
+
+  @apply bg-[#fafafa]
+}
+
+.box-image {
+  vertical-align: top;
+  @apply text-center w-auto h-[339px]
+}
+
+.image-label {
+  line-height: 1.42859;
+  @apply text-[14px] font-normal tracking-[-.016em] text-footer-category pt-[24px] pb-0 px-[15px]
+}
+
+.in-the-box-gallery {
+  h2 + * {
+    @apply mt-[0.8em]
+  }
+
+
+  .gallery-outer-wrapper {
+    .gallery-images-container {
+      .image-item-container {
+        .gallery-image-label {
+          line-height: 1.42859;
+          @apply text-[14px] font-normal tracking-[-.016em] pt-[24px] pb-[35px] px-[15px] whitespace-normal
+        }
+        .image-gallery-wrapper {
+          img {
+            @apply inline-block
+          }
+
+          @apply bg-[#fafafa]
+        }
+
+        .gallery-image {
+          @media only screen and (max-width: 1023px) and (max-width: 736px) {
+            @apply h-[372px]
+          }
+          vertical-align: top;
+          @apply text-center w-auto h-[339px]
+        }
+
+        @apply text-center cursor-pointer w-full overflow-hidden
+      }
+
+      @apply whitespace-nowrap flex relative w-full
+    }
+
+    @apply overflow-hidden relative min-h-[100px]
+  }
+
+  @apply relative mb-[30px]
+
+}
+
+
+

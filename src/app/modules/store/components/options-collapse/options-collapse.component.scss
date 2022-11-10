@@ -1,0 +1,91 @@
+.collapsible {
+  @apply relative min-h-[66px] border-b border-footer-border-color
+}
+
+.collapse-header-fade {
+  &.is-first {
+    @apply border-t border-footer-border-color
+  }
+
+  &:hover {
+    color: #06c !important;
+  }
+
+  &.exited {
+    transition: opacity .25s ease-out,transform .25s ease-out;
+    @apply opacity-0
+  }
+  &.enter {
+    transform: translateY(0);
+    @apply opacity-100
+  }
+  transform: translateY(5px);
+  transition: opacity .4s ease-in,transform .3s ease-in .1s;
+  @apply  absolute top-0 bottom-0 left-0 right-0
+}
+
+
+.collapse-header-fade-text {
+  line-height: 1.16667;
+  text-overflow: ellipsis;
+  @apply text-[24px] font-semibold tracking-[.009em] cursor-pointer overflow-hidden whitespace-nowrap pt-[20px] pb-[18px] pr-[110px] pl-0
+}
+
+.collapse-header-fade-button {
+  line-height: 1.42859;
+  @apply bg-transparent text-nav-link-color p-0 cursor-pointer text-right absolute right-[16px] top-[22px] text-[14px] font-normal tracking-[-.016em]
+}
+
+.collapse-header-height {
+
+  &.disabled {
+    opacity: .32;
+    pointer-events: none;
+  }
+  transition: height .4s ease-in-out;
+  &.enter {
+    .collapse-header-height-content {
+      @apply overflow-visible
+    }
+
+    @apply overflow-visible
+  }
+  //&.height-collapsed {
+  //  @apply h-0;
+  //}
+  @apply my-0 mx-[-5px] overflow-hidden
+}
+
+.collapse-header-height-content {
+  @apply py-0 px-[5px]
+}
+
+.collapse-fade-wrapper {
+
+  &.disabled {
+    opacity: .56;
+    pointer-events: none;
+  }
+  &.enter {
+    @apply opacity-100
+  }
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: .4s;
+  @apply opacity-0
+}
+
+.collapse-legend-heading {
+  &.if-first {
+    @apply pt-0
+  }
+  &.enter {
+    transform: translateY(0);
+    @apply opacity-100
+  }
+  transform: translateY(-15px);
+  transition: opacity .2s ease-in-out .1s, transform .3s ease-in-out;
+  line-height: 1.47059;
+  @apply pt-[25px] text-footer-category opacity-0 text-[17px] tracking-[-.022em] font-semibold
+}
+

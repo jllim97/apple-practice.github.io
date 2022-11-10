@@ -1,0 +1,162 @@
+.content-block {
+  --mobile-ui-height: 0px;
+  --scale-factor: -1;
+  --nav-height: calc(var(--r-globalnav-height) + var(--r-localnav-height));
+  --container-height: max(700px + var(--nav-height), 100vh);
+  --hardware-height: max(700px, min(86.75vh, 1000px));
+  --lockup-margin: calc(var(--scale-factor)*(var(--container-height) - var(--nav-height) - var(--hardware-height)));
+
+  @media only screen and (max-width: 1068px) {
+    --nav-height: calc(var(--r-localnav-height) + var(--mobile-ui-height));
+    --container-height: max(600px + var(--nav-height),100vh);
+    --hardware-height: max(600px,min(85vh,800px));
+    margin-top: max(var(--lockup-margin),-90px);
+    transform: none;
+  }
+
+  @media only screen and (max-width: 734px) {
+    --scale-factor: -0.5;
+    --nav-height: calc(var(--r-localnav-gn-height) + var(--r-localnav-height) + var(--mobile-ui-height));
+    --container-height: max(355px,min(100vh,786px));
+    --hardware-height: max(355px,min(72vh,786px));
+    @apply mt-0 block flex-col
+  }
+
+  margin-top: max(var(--lockup-margin), 58px);
+  transform: translateX(-9px);
+}
+
+.image-hero {
+  @media only screen and (max-width: 1068px) {
+    margin-right: calc(max(600px, min(85vh, 800px))*0.83432*-0.3);
+    transform: none;
+  }
+  @media only screen and (max-width: 734px) {
+    height: calc(100vh - var(--r-localnav-gn-height) - var(--r-localnav-height) - var(--mobile-ui-height));
+    min-height: min(max(355px,72vh),786px);
+    @apply items-center flex flex-col justify-center max-h-[786px]
+  }
+  margin-right: calc(max(700px, min(86.75vh, 1000px))*0.83333*-0.3);
+  transform: translateX(-9px);
+}
+
+.hero-picture {
+  @media only screen and (min-width: 1069px) {
+    @apply h-auto max-w-[833px] min-w-[583px] w-[72.2916666667vh]
+  }
+  @media only screen and (max-width: 1068px) {
+    @apply w-[564px] h-[535px] h-auto max-w-[667px] min-w-[501px] w-[70.9171597633vh];
+  }
+  @media only screen and (max-width: 734px) {
+    transform: translateX(11.75%) translateY(max(-56px,min(var(--lockup-margin),0px)));
+    @apply w-[447px] h-[535px] h-auto max-w-[447px] min-w-[297px] w-[60.570093458vh]
+  }
+  @apply relative block w-[685px] h-[822px]
+}
+
+.hero-picture img {
+    @apply h-full left-0 absolute top-0 w-auto
+}
+
+.hero-picture {
+  &:before {
+    content: "";
+    @media only screen and (max-width: 1068px) {
+      @apply pt-[119.85815603%];
+    }
+    @media only screen and (max-width: 734px) {
+      @apply pt-[119.68680089%];
+    }
+    @apply block pt-[120%]
+  }
+
+}
+
+.hero-text {
+  @media only screen and (max-width: 1068px) {
+    @apply mt-[36px] mx-[-12.5px] min-w-[235px] transform-none
+  }
+  @media only screen and (max-width: 734px) {
+    @apply mt-[29px] mx-0 min-w-0
+  }
+  transform: translateX(9px);
+  @apply mt-[84px] items-center flex flex-col mx-[-16.5px] min-w-[313px] relative
+}
+
+.hero-title-wrapper {
+  @media only screen and (max-width: 1068px) {
+    @apply mb-[18px]
+  }
+  @apply items-center flex flex-col relative mb-[24px]
+}
+
+.logo-title {
+  &.hidden {
+    opacity: 0;
+  }
+  line-height:1.0416666668;
+
+  .title-blue {
+    mix-blend-mode: multiply;
+    @apply text-[#0093ff] absolute top-0 left-0
+  }
+
+  .title-pink {
+    mix-blend-mode: multiply;
+    @apply text-[#ff0592]
+  }
+
+  .title-yellow {
+    mix-blend-mode: multiply;
+    @apply text-[#ffb62f] absolute top-0 left-0
+  }
+
+  @media only screen and (max-width: 1068px) {
+    line-height: 1.05;
+    @apply text-[80px] font-semibold tracking-[-0.015em]
+  }
+
+  @media only screen and (max-width: 734px) {
+    line-height:1.083493333;
+    @apply text-[48px] tracking-[-0.003em]
+  }
+  @apply text-[96px] tracking-[-0.015em] font-semibold
+
+}
+
+.title {
+
+  &.visible {
+    //@apply opacity-100
+  }
+  @media only screen and (max-width: 1068px) {
+    line-height: 1.0834933333;
+    @apply text-[48px] tracking-[-0.003em]
+  }
+  line-height: 1.109375;
+  transform-style: preserve-3d;
+  transition: all .4s ease;
+  will-change: transform;
+  @apply mt-0 whitespace-nowrap text-[64px] font-semibold tracking-[-0.0025em]
+}
+
+
+.logo-image {
+  @media only screen and (max-width: 734px) {
+    @apply w-[64px] h-[27px] left-1/2 ml-[-32px]
+  }
+  @media only screen and (max-width: 1068px) {
+    @apply w-[45px] h-[20px] ml-[-22.5px] mb-[8px]
+  }
+  @apply block relative left-1/2 ml-[-31px] mb-[11px] w-[62px] h-[27px]
+}
+
+.logo {
+  transform: translate(-50%, -50%);
+  @apply inline-block mx-auto my-0 absolute left-1/2 top-1/2
+}
+
+.title-normal {
+  line-height: 1.4211026316;
+  @apply text-[19px] font-normal tracking-[.0075em] text-center mt-[7px]
+}

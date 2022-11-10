@@ -1,0 +1,135 @@
+.accordion-item {
+  @apply border-t border-footer-border-color m-0 p-0
+}
+
+.title-container {
+  @media only screen and (max-width: 1068px) {
+    @apply w-[87.5%]
+  }
+  @apply mx-auto w-[980px] text-footer-category font-[600]
+}
+
+.accordion-title {
+  &:hover {
+    @apply text-nav-link-color
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    line-height: 1.16667;
+    @apply text-[24px] tracking-[.009em]
+  }
+  line-height: 1.14286;
+  @apply text-[32px] font-semibold tracking-[.004em] w-full pt-[8px] pb-[7px] p-0
+}
+.accordion-button {
+  @media only screen and (max-width: 1023px) and (max-width: 736px) {
+    @apply px-0 pt-[24px] pb-[25px]
+  }
+  @apply flex items-center w-full cursor-pointer px-0 pt-[30px] pb-[34px] text-left
+}
+.accordion-chevron-down {
+  &.expanded {
+    transform: rotateX(180deg);
+  }
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply top-[4px]
+  }
+  svg {
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      @apply w-[24px]
+    }
+    @apply block
+  }
+  align-self: baseline;
+  stroke-width: 2.25;
+  transition: transform .3s linear;
+  @apply m-0 flex justify-center items-start w-[32px] text-[#86868b] relative top-[12px]
+}
+
+.content-wrapper {
+  &.enter {
+    transition: height .3s ease-in-out,min-height .3s ease-in-out,opacity .1s ease-in-out .2s;
+    @apply overflow-visible opacity-100
+  }
+  &.exit {
+    transition: height .4s ease-in-out,min-height .4s ease-in-out,opacity .1s ease-in-out .2s;
+    @apply opacity-0
+  }
+  //transition-property: height;
+  //transition-timing-function: ease-in-out;
+  //transition-duration: .4s;
+  @apply mt-0 overflow-hidden
+}
+
+.content {
+  &.enter {
+    @apply overflow-visible
+  }
+}
+
+.list-container {
+  @media only screen and (max-width: 1068px){
+    @apply w-[87.5%]
+  }
+  transition: height .5s ease-in-out;
+  @apply mx-auto w-[980px]
+}
+
+.list-content {
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+  }
+  max-width: inherit;
+  @apply p-0
+}
+
+.question-list-wrapper {
+  .content-wrapper {
+    @apply mt-[0.8em] relative top-[-15px]
+  }
+  .accordion-title {
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      @apply p-0
+    }
+    line-height: 1.42859;
+    @apply text-[14px] font-semibold tracking-[-.016em]
+  }
+  .accordion-chevron-down {
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      @apply top-[4px]
+    }
+    @apply top-[6px]
+  }
+  .content-wrapper {
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      @apply top-[-7px]
+    }
+    @apply relative top-[-15px]
+  }
+
+  .question {
+    @apply py-[23px] px-0 cursor-pointer flex items-center w-full text-left
+  }
+
+  .list-content {
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      max-width: inherit;
+      @apply pr-0
+    }
+    p+* {
+      @apply mt-[0.8em]
+    }
+    line-height: 1.42859;
+    @apply text-[14px] font-normal tracking-[-.016em] pb-[13px] pr-[35px]  max-w-[800px]
+  }
+
+  svg {
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      @apply w-[14px]
+    }
+    @apply w-[17px] h-auto block
+  }
+  @apply list-none m-0 p-0
+}
+
+.question-item {
+  @apply border-t border-footer-border-color m-0 p-0
+}

@@ -1,0 +1,65 @@
+<div class="in-the-box-container">
+  <div class="in-the-box-content ">
+    <h2 class="box-title text-[40px] font-semibold tracking-[0] text-center px-0 pt-[64px] pb-[41px] text-footer-category">What's in the Box</h2>
+    <ul #webViewList class="max-1068:flex-nowrap max-734:hidden flex flex-wrap in-the-box-image-list">
+      <li class="in-the-box-image-item">
+        <div class="box-image-wrapper">
+          <img width="281" height="372" class="box-image" src="../../../../../assets/images/ipad-blue-wifi-witb-202210_FMT_WHH.jpeg" alt>
+        </div>
+        <div class="image-label">iPad</div>
+      </li>
+      <li class="in-the-box-image-item">
+        <div class="box-image-wrapper">
+          <img width="281" height="372" class="box-image" src="../../../../../assets/images/ipad-witb-cable-202210_FMT_WHH.jpeg" alt>
+        </div>
+        <div class="image-label">USB-C Charge Cable</div>
+      </li>
+      <li class="in-the-box-image-item">
+        <div class="box-image-wrapper">
+          <img width="281" height="372" class="box-image" src="../../../../../assets/images/ipad-witb-adapter-202109_GEO_MY_FMT_WHH.jpeg" alt>
+        </div>
+        <div class="image-label">20W USB-C Power Adapter</div>
+      </li>
+    </ul>
+
+
+    <div class="in-the-box-gallery max-734:block hidden" #mobileViewList>
+      <div class="gallery-dot-container ">
+        <ul class="dotlist">
+          <li class="dotlist-item">
+            <button (click)="onImageSelected(1)" class="dot" [ngClass]="{'selected': currentIndex ===1}"></button>
+          </li>
+          <li class="dotlist-item">
+            <button (click)="onImageSelected(2)" class="dot" [ngClass]="{'selected': currentIndex ===2}"></button>
+          </li>
+          <li class="dotlist-item">
+            <button (click)="onImageSelected(3)" class="dot" [ngClass]="{'selected': currentIndex ===3}"></button>
+          </li>
+        </ul>
+
+      </div>
+      <div #galleryImageWrapper class="gallery-outer-wrapper">
+        <div #galleryContainer class="gallery-images-container " style="transform:translateX(0px); width:200%; left:0%; transition:all 400ms ease 0s">
+          <div *ngIf="currentIndex <= 2" class="image-item-container">
+            <div #img1 class="image-gallery-wrapper">
+              <img height="372" width="281" class="gallery-image" src="../../../../../assets/images/ipad-blue-wifi-witb-202210_FMT_WHH.jpeg" alt >
+            </div>
+            <div class="gallery-image-label">iPad</div>
+          </div>
+          <div #img2 class="image-item-container">
+            <div class="image-gallery-wrapper">
+              <img   height="372" width="281" class="gallery-image" src="../../../../../assets/images/ipad-witb-cable-202210_FMT_WHH.jpeg" alt >
+            </div>
+            <div class="gallery-image-label">USB-C Charge Cable</div>
+          </div>
+          <div *ngIf="currentIndex >= 2" class="image-item-container">
+            <div #img3 class="image-gallery-wrapper">
+              <img height="372" width="281" class="gallery-image" src="../../../../../assets/images/ipad-witb-adapter-202109_GEO_MY_FMT_WHH.jpeg" alt >
+            </div>
+            <div class="gallery-image-label">20W USB-C Power Adapter</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

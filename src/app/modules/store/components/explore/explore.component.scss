@@ -1,0 +1,134 @@
+.explore-container {
+  .explore-content-container {
+
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      @apply relative w-[87.5%] mt-0 mb-[21px]
+    }
+    @apply w-[980px] mx-auto mt-[48px] mb-[32px]
+  }
+
+  @apply w-full overflow-hidden
+}
+
+.explore-title {
+
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    line-height: 1.14286;
+    @apply mt-0 mx-[11%] text-[28px] font-semibold tracking-[.007em]
+  }
+  @apply text-[40px] font-semibold tracking-[0] text-center
+}
+
+.explore-title-desc {
+
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply w-[280px] mx-auto
+  }
+  @apply text-center mt-[0.8em]
+}
+
+.explore-title-link {
+  .more {
+    &:after {
+      content: "";
+      line-height: 1;
+      @apply pl-[0.3em] top-0 inline-block relative z-[1]
+    }
+  }
+
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply mb-[45px]
+  }
+  line-height: 1.47059;
+  @apply text-[17px] mt-[0.8em] font-normal tracking-[-.022em] block text-center mb-[56px]
+}
+
+.services-container {
+  .services-wrapper {
+    .services-row {
+      .services-item {
+        .item-container-wrapper {
+          .item-services-info {
+            img {
+              @apply inline-block
+            }
+            .services-link {
+              &.more {
+                &:after {
+                  content: "";
+                  line-height: 1;
+                  @apply pl-[0.3em] top-0 inline-block relative z-[1]
+                }
+              }
+              &:hover {
+                @apply underline
+              }
+              @apply text-nav-link-color
+            }
+            .services-info-description {
+              @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+                @apply mx-[8%]
+              }
+              @apply mb-[13px] text-[14px] font-normal tracking-[-.016em]
+            }
+
+            .services-info-title {
+              @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+                line-height: 1.19048;
+                @apply text-[21px] tracking-[.011em]
+              }
+              line-height: 1.16667;
+              @apply text-[24px] font-semibold tracking-[.009em] text-white my-[10px] mx-0
+            }
+
+            @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+              @apply pt-[28px] px-[16px] pb-[34px]
+            }
+            @apply text-center px-[23px] pt-[18px] pb-[31px]
+          }
+
+          .item-image-container {
+            img {
+              @apply inline-block
+            }
+            @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+              @apply pt-[46px]
+            }
+            line-height: 0;
+            @apply text-center pt-[30px]
+          }
+
+          @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+            @apply w-[265px] m-[5px]
+          }
+          @apply bg-footer-category text-white rounded-[20px] w-[320px] overflow-hidden
+        }
+
+        @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+          &:first-child {
+            @apply pl-[25px] justify-start
+          }
+          min-width: auto;
+          @apply basis-full max-w-full basis-auto
+        }
+        @apply flex whitespace-normal basis-4/12 max-w-1/3 justify-center box-border m-0 p-0 min-w-0
+      }
+
+      @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+        @apply flex-nowrap
+      }
+      @apply basis-full max-w-full
+    }
+
+    @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+      overflow-x: auto;
+      @apply whitespace-nowrap w-auto
+    }
+  }
+
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply mx-[-7.14286%]
+  }
+
+  @apply mt-[0.8em]
+}

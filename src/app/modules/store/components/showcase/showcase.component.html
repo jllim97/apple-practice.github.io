@@ -1,0 +1,91 @@
+<div class="gallery-wrapper ready" [ngClass]="isZoom ? 'zoomed' : 'normal'">
+  <div class="images-container" [ngClass]="isZoom ? 'zoomed' : 'normal'">
+    <ul class="image-list">
+      <li class="w-[22.7872%]">
+        <button (click)="onImageClick(0)">
+          <span class="a11y">
+            Show
+            Image
+            1
+          </span>
+        </button>
+      </li>
+      <li class="w-[15.8192%]">
+        <button (click)="onImageClick(1)">
+          <span class="a11y">
+            Show
+            Image
+            2
+          </span>
+        </button>
+      </li>
+      <li class="w-[22.7872%]">
+        <button (click)="onImageClick(2)">
+          <span class="a11y">
+            Show
+            Image
+            3
+          </span>
+        </button>
+      </li>
+      <li class="w-[15.8192%]">
+        <button (click)="onImageClick(3)">
+          <span class="a11y">
+            Show
+            Image
+            4
+          </span>
+        </button>
+      </li>
+      <li class="w-[22.7872%]">
+        <button (click)="onImageClick(4)">
+          <span class="a11y">
+            Show
+            Image
+            5
+          </span>
+        </button>
+      </li>
+    </ul>
+
+    <div #galleryContainer class="zoomable-gallery" [ngClass]="{'zoomed': isZoom}">
+      <button (click)="closeZoom()" class="zoom-close" [ngClass]="{'zoomed': isZoom && isReady}">
+          <svg  width="21" height="21" role="img" aria-hidden="true" class="close-svg"><path _ngcontent-eee-c43="" fill="none" d="M0 0h21v21H0z"></path><path _ngcontent-eee-c43="" d="M12.12 10l4.07-4.06a1.5 1.5 0 10-2.11-2.12L10 7.88 5.94 3.81a1.5 1.5 0 10-2.12 2.12L7.88 10l-4.07 4.06a1.5 1.5 0 000 2.12 1.51 1.51 0 002.13 0L10 12.12l4.06 4.07a1.45 1.45 0 001.06.44 1.5 1.5 0 001.06-2.56z"></path></svg>
+        <span class="a11y">Close</span>
+      </button>
+      <button *ngIf="currentIndex !== 0" (click)="prev()" class="zoom-previous arrow" [ngClass]="{'zoomed': isZoom && isReady}" ><</button>
+      <button *ngIf="currentIndex !== 4" (click)="next()" class="zoom-next arrow"  [ngClass]="{'zoomed': isZoom && isReady}">
+        <span class="a11y">Next</span>
+        >
+      </button>
+      <ul class="zoomable-gallery-list " [ngClass]="{'zoomed': isZoom}">
+        <li #item1 class="gallery-list-item w-[22.7872%]">
+          <img src="../../../../../assets/images/ipad-202210-thumb-1.jpeg" alt height="120" width="203">
+          <img class="zoomed-image" [ngClass]="{'zoomed': isZoom}" src="../../../../../assets/images/ipad-202210-gallery-1.jpeg" alt>
+        </li>
+        <li #item2 class="gallery-list-item w-[15.8192%]">
+          <img src="../../../../../assets/images/ipad-202210-thumb-2_GEO_MY.jpeg" alt height="120" width="141">
+          <img class="zoomed-image" [ngClass]="{'zoomed': isZoom}" src="../../../../../assets/images/ipad-202210-gallery-2_GEO_MY.jpeg" alt>
+        </li>
+        <li #item3 class="gallery-list-item w-[22.7872%]">
+          <img src="../../../../../assets/images/ipad-202210-thumb-3.jpeg" alt height="120" width="203">
+          <img class="zoomed-image" [ngClass]="{'zoomed': isZoom}" src="../../../../../assets/images/ipad-202210-gallery-3.jpeg" alt>
+
+        </li>
+        <li #item4 class="gallery-list-item w-[15.8192%]">
+          <img src="../../../../../assets/images/ipad-202210-thumb-4.jpeg" alt height="120" width="141">
+          <img class="zoomed-image" [ngClass]="{'zoomed': isZoom}" src="../../../../../assets/images/ipad-202210-gallery-4.jpeg" alt>
+
+        </li>
+        <li #item5 class="gallery-list-item w-[22.7872%]">
+          <img src="../../../../../assets/images/ipad-202210-thumb-5.jpeg" alt height="120" width="141">
+          <img class="zoomed-image" [ngClass]="{'zoomed': isZoom}" src="../../../../../assets/images/ipad-202210-gallery-5.jpeg" alt>
+
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+

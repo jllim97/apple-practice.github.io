@@ -1,0 +1,63 @@
+<section #sectionVideo class="section-videos">
+  <div class="video-sticky-wrapper relative w-full">
+    <div class="video-content sticky top-0 overflow-hidden w-full">
+      <div class="path-reveal-container w-full">
+        <div class="path-reveal-item w-full h-[100vh]">
+          <div class="inline-video w-full h-full relative z-[-1]">
+            <video id="ipad-video" #ipadVideo autoplay loop>
+              <source src="../../../../../assets/images/large_2x.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal-mask w-full mt-[-100vh] flex flex-col">
+      <svg id="layer-1" class="path-layer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.6 437"
+           preserveAspectRatio="xMidYMin slice">
+        <path vector-effect="non-scaling-stroke" shape-rendering="auto" class="st0" d="M779.4,65.5c-194-9-503,52-503,83s387-53,387-10s-523,31-523,101c0,53,784-128,784-54
+										c0,59-937.4,72.7-937.4,141.3c0,45.7,1011.4-124.3,1011.4-75.3s-1029,83-1029,140s1159-162.7,1078-83c-66,65-1100,90-1091,139
+										c8.7,47.5,1091-121,1091-53s-1068,21-1068,110c0,57,919-27,1074-33"></path>
+      </svg>
+      <figure class="path-layer-figure top-path"
+              data-download-area-keyframe="{&quot;start&quot;: &quot;t - 200vh&quot;, &quot;end&quot;: &quot;b + 100vh&quot;, &quot;disabledWhen&quot;: [&quot;safari&quot;, &quot;no-enhanced&quot;]}"
+              data-anim-lazy-image-download-complete=""></figure>
+      <div class="body-mask"></div>
+      <svg id="layer-2" class="path-layer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024.6 370"
+           preserveAspectRatio="xMidYMin slice">
+        <path vector-effect="non-scaling-stroke" class="st1" d="M-24,22c0,29,1075-54,1075-15S-22,44-22,83s1068-53,1068-14S-25,108-25,146s1069-33,1069,5s-890,23-890,63
+										s718.5-9.9,716,30c-2,32-65,16-274,54"></path>
+      </svg>
+      <figure class="path-layer-figure bottom-path"
+              data-download-area-keyframe="{&quot;start&quot;: &quot;t - 200vh&quot;, &quot;end&quot;: &quot;b + 100vh&quot;, &quot;disabledWhen&quot;: [&quot;safari&quot;, &quot;no-enhanced&quot;]}"
+              data-anim-lazy-image-download-complete=""></figure>
+    </div>
+    <div #buttonContainer class="button-container visible ">
+      <button #videoButton class="video-button-wrapper" (click)="triggerVideo()">
+        <span class="control-button">
+          <figure class="control-icon pause" *ngIf="isPlaying"></figure>
+          <figure class="control-icon play" *ngIf="!isPlaying"></figure>
+          <figure class="control-icon buffer opacity-0"></figure>
+        </span>
+      </button>
+    </div>
+    <div #featureWrapper class="features">
+      <div #featureContent class="features-content">
+        <div class="features-description">
+          <p #one class="description">
+            All screen.
+            <br class="small hidden">
+            All&nbsp;colourful.
+          </p>
+          <p #two class="description">
+            Jot it down.
+            <br class="small hidden">
+            Type&nbsp;it&nbsp;up.
+          </p>
+          <p #three class="description">
+            Take it with&nbsp;you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

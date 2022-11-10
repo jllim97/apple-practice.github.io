@@ -1,0 +1,18 @@
+<label (click)="onSelected()" class="color-selector place-self-stretch selector" *ngIf="isColor"
+       [ngClass]="{'checked': isSelected}">
+  <img class="w-[32px] h-[32px]" alt="Blue" [src]="'../../../../../assets/images/finish-' + color + '-202210.png'">
+  <span></span>
+  <span class="label-small">{{color | titlecase}}</span>
+</label>
+<label *ngIf=isSpecs (click)="onSelected()" class="threeline-selector selector" [ngClass]="{'checked': isSelected}">
+  <ng-container [ngTemplateOutlet]="content"></ng-container>
+</label>
+
+<label (click)="onSelected()" [ngClass]="{'checked': isSelected, 'ring': isRing && isSelected}"  *ngIf="isCustom" class="selector">
+  <ng-container [ngTemplateOutlet]="content"></ng-container>
+
+</label>
+
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>

@@ -1,0 +1,32 @@
+.selector {
+  &.checked {
+    border-width: 2px;
+    &:hover {
+      @apply border-primary
+    }
+    @apply border-primary p-[14px];
+  }
+  &:hover {
+    @apply border-[#86868b];
+  }
+  background-color: hsla(0, 0%, 100%, .8);
+  border-width: 1px;
+  @apply cursor-pointer p-[15px] box-border min-h-[4.88235rem] text-[17px] font-normal border-[#d2d2d7] tracking-[-0.22em] w-full h-auto rounded-[12px] flex flex-col items-center justify-center text-footer-category
+}
+
+.label-small {
+  line-height: 1.33337;
+  @apply block mt-[0.23529rem] relative text-[12px] tracking-[-.01em] text-footer-category
+}
+
+.color-selector {
+  &.selector {
+    @apply min-h-[6.05882rem]
+  }
+}
+
+.threeline-selector {
+  &.selector {
+    @apply min-h-[6.23529rem]
+  }
+}

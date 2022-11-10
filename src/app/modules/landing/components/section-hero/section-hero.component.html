@@ -1,0 +1,57 @@
+<section class="overflow-hidden max-734:min-h-0 items-center relative flex z-[1]">
+  <div
+    class="mx-auto w-[980px] max-small:w-[87.5%] max-1068:w-auto max-1068:max-w-[720px] max-small:max-w-none max-small:w-full">
+    <div class="content-block flex flex-nowrap flex-row w-full items-center justify-center">
+      <div class="image-hero box-border max-734:basis-full max-734:max-w-full">
+        <picture class="hero-picture" data-picture-loaded="">
+          <!--    <source-->
+          <!--      srcset="https://www.apple.com/v/ipad-10.9/b/images/overview/hero/hero__ecv967jz1y82_small.jpg, https://www.apple.com/v/ipad-10.9/b/images/overview/hero/hero__ecv967jz1y82_small_2x.jpg 2x"-->
+          <!--      media="(max-width:734px)">-->
+          <!--    <source-->
+          <!--      srcset="https://www.apple.comv/ipad-10.9/b/images/overview/hero/hero__ecv967jz1y82_medium.jpg, https://www.apple.com/v/ipad-10.9/b/images/overview/hero/hero__ecv967jz1y82_medium_2x.jpg 2x"-->
+          <!--      media="(max-width:1068px)">-->
+          <source
+            srcset="../../../../../assets/images/hero.jpg"
+            media="(min-width:0px)">
+          <img src="../../../../../assets/images/hero.jpg"
+               onload="__lp(event)"
+               alt="iPad in blue, pink, yellow and silver colours and one iPad attached to the Magic Keyboard Folio.">
+        </picture>
+      </div>
+      <div class="hero-text relative box-border max-734:basis-full max-734:max-w-full">
+        <div class="hero-title-wrapper">
+          <div class="logo absolute inline-block mx-auto my-0">
+            <h1 class="logo-title hidden text-footer-category" [ngClass]="{'hidden': hideAnimationTitle}">
+              <span class="title-blue inline-block max-1068:hidden" [@flyUpDown]>iPad</span>
+              <span class="title-blue hidden max-small:hidden max-1068:inline-block" [@flyUpDown-medium]>iPad</span>
+              <span class="title-blue hidden max-small:inline-block" [@flyUpDown-small]>iPad</span>
+              <span class="title-pink">iPad</span>
+              <span class="title-yellow inline-block max-1068:hidden" [@flyDownUp] (@flyDownUp.done)="triggerTitle($event)">iPad</span>
+              <span class="title-yellow hidden max-small:hidden max-1068:inline-block" [@flyDownUp-medium] (@flyDownUp-medium.done)="triggerTitle($event)">iPad</span>
+              <span class="title-yellow hidden max-small:inline-block" [@flyDownUp-small] (@flyDownUp-small.done)="triggerTitle($event)">iPad</span>
+            </h1>
+<!--            <picture class="logo-image" data-lazy="" data-download-area-keyframe="{&quot;start&quot;: &quot;t - 200vh&quot;, &quot;end&quot;: &quot;b + 100vh&quot;, &quot;disabledWhen&quot;: [&quot;enhanced&quot;]}" aria-hidden="true" data-picture-loaded="">-->
+<!--              <img src="../../../../assets/images/logo_ipad.png"  alt="logo ipad"/>-->
+<!--            </picture>-->
+          </div>
+          <div class="hero-title text-center">
+            <p class="title" [@fadeInOut]="hideTitle ? 'invisible-above' : 'visible-above'"  [ngClass]="{'visible': !hideTitle}">Lovable.</p>
+            <p class="title" [@fadeInOut]="hideTitle ? 'invisible' : 'visible'" [ngClass]="{'visible': !hideTitle}">Drawable.</p>
+            <p class="title" [@fadeInOut]="hideTitle ? 'invisible-below' : 'visible-below'" [ngClass]="{'visible': !hideTitle}">Magical.</p>
+          </div>
+        </div>
+        <p class="title-normal mb-[20px] max-1068:mb-[10px]">
+          <span>From RM&nbsp;2,099</span>
+        </p>
+        <p class="title-normal ">
+          <a class="text-nav-link-color">
+            <span>Watch the film</span>
+          </a>
+        </p>
+        <p class="text-[#86868b] title-normal">
+          <span>Check back later for&nbsp;availability</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

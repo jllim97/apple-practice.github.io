@@ -1,0 +1,147 @@
+<div class="faq-container-wrapper">
+  <ul class="faq-accordion list-none m-0 p-0">
+    <li class="accordion-item">
+      <h2 class="title-container">
+        <button (click)="onHeaderClick()" class="accordion-button">
+          <span class="accordion-title">
+            Frequently Asked Question
+          </span>
+          <span class="icon"></span>
+          <span class="accordion-chevron-down" [ngClass]="{'expanded': isHeaderVisible}">
+            <svg viewBox="0 0 17 8.85"
+                 class="as-svgicon as-svgicon-chevrondown as-svgicon-base as-svgicon-chevrondownbase" role="img"
+                 aria-hidden="true" width="35px" height="35px"><path fill="none" d="M0 0h35v35H0z"></path><path
+              fill="none" stroke="#86868b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25"
+              d="M15 1.13L8.5 7.72 2 1.13"></path></svg>
+          </span>
+        </button>
+      </h2>
+      <div #header class="content-wrapper" [ngClass]="isHeaderVisible ? 'enter' : 'exit'" style="min-height: 0px;height:0px">
+        <div #headerInner class="inner-content">
+          <div class="list-container">
+            <div class="list-content">
+              <ul class="question-list-wrapper">
+                <li class="question-item">
+                  <h3>
+                    <button (click)="onQuestionClick(1)" class="question">
+                      <span class="accordion-title">Which Apple Pencil will work with this iPad?</span>
+                      <span class="icon"></span>
+                      <span class="accordion-chevron-down" [ngClass]="{'expanded': isQuestionOneVisible}">
+                        <svg viewBox="0 0 17 8.85" class="svg-icon" role="img" aria-hidden="true" width="35px"
+                             height="35px"><path fill="none" d="M0 0h35v35H0z"></path><path fill="none" stroke="#86868b"
+                                                                                            stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2.25"
+                                                                                            d="M15 1.13L8.5 7.72 2 1.13"></path></svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div #q1 class="content-wrapper" [ngClass]="isQuestionOneVisible ? 'enter' : 'exit'"
+                       style="height: 0px">
+                    <div #q1Inner class="inner-content">
+                      <div class="content-question">
+                        <div class="list-content">
+                          <div>
+                            <p>
+                              Apple Pencil (1st generation). To use Apple Pencil with this iPad (10th generation), the
+                              USB-C to Apple Pencil Adapter is required for pairing and charging. If you already own an
+                              Apple Pencil, you’ll need to purchase the USB-C to Apple Pencil Adapter. This adapter is
+                              sold separately at Apple Store locations, on apple.com, and on the Apple Store app.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="question-item">
+                  <h3>
+                    <button (click)="onQuestionClick(2)" class="question">
+                      <span class="accordion-title">Which keyboard will work with this iPad?</span>
+                      <span class="icon"></span>
+                      <span class="accordion-chevron-down" [ngClass]="{'expanded': isQuestionTwoVisible}">
+                        <svg viewBox="0 0 17 8.85" class="svg-icon" role="img" aria-hidden="true" width="35px"
+                             height="35px"><path fill="none" d="M0 0h35v35H0z"></path><path fill="none" stroke="#86868b"
+                                                                                            stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2.25"
+                                                                                            d="M15 1.13L8.5 7.72 2 1.13"></path></svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div #q2 class="content-wrapper" [ngClass]="isQuestionTwoVisible ? 'enter' : 'exit'"
+                       style="height: 0px">
+                    <div  #q2Inner class="inner-content">
+                      <div class="content-question">
+                        <div class="list-content">
+                          <div>
+                            <p>
+                              The Magic Keyboard Folio is designed specifically for iPad (10th generation). Third-party
+                              keyboards are also available.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="question-item">
+                  <h3>
+                    <button (click)="onQuestionClick(3)" class="question">
+                      <span class="accordion-title">What type of SIM does this iPad have?</span>
+                      <span class="icon"></span>
+                      <span class="accordion-chevron-down" [ngClass]="{'expanded': isQuestionThreeVisible}">
+                        <svg viewBox="0 0 17 8.85" class="svg-icon" role="img" aria-hidden="true" width="35px"
+                             height="35px"><path fill="none" d="M0 0h35v35H0z"></path><path fill="none" stroke="#86868b"
+                                                                                            stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2.25"
+                                                                                            d="M15 1.13L8.5 7.72 2 1.13"></path></svg>
+                      </span>
+                    </button>
+                  </h3>
+                  <div #q3 class="content-wrapper" [ngClass]="isQuestionThreeVisible ? 'enter' : 'exit'"
+                       style="height: 0px">
+                    <div #q3Inner class="inner-content">
+                      <div class="content-question">
+                        <div class="list-content">
+                          <div>
+                            <p>Newer Wi-Fi + Cellular models include built-in eSIM technology that acts as a digital SIM
+                              card. There are a few ways to activate an eSIM on your iPad, including downloading it to
+                              the iPad itself, scanning a QR code, or using an app from a network provider.* With eSIM,
+                              you can choose mobile data plans from selected network providers in the UK and in more
+                              than 180 countries and regions around the world.&nbsp;<a class="cursor-pointer hover:underline text-nav-link-color"
+                                href="https://support.apple.com/en-gb/HT203089" target="_blank">Learn more</a>&nbsp;about
+                              setting up eSIM.</p>
+                            <p>Wi-Fi + Cellular models with embedded eSIM technology include iPad Pro 12.9-inch (3rd
+                              generation or later), iPad Pro 11-inch (1st generation or later), iPad Air (3rd generation
+                              or later), iPad (7th generation or later), and iPad mini (5th and 6th generation).</p>
+                            <p>All Wi-Fi + Cellular models include a nano-SIM tray that supports a carrier SIM card.</p>
+                            <p><a class="cursor-pointer hover:underline text-nav-link-color" href="https://www.apple.com/my/ipad/LTE" data-slot-name="faqSection"
+                                  data-feature-name="Astro Link" data-display-name="AOS: ipad/LTE" >More
+                              information on iPad support for LTE networks by network provider and country or region</a>
+                            </p>
+                            <p>* Not all carriers support eSIM. See your carrier for more details. Not available in
+                              China mainland. The eSIM technology works with iPad&nbsp;Pro 11‑inch (1st generation or
+                              later), iPad&nbsp;Pro 12.9‑inch (3rd generation or later), iPad&nbsp;Air (3rd generation
+                              or later), iPad (7th generation or later), and iPad&nbsp;mini (5th generation or later).
+                              Apple&nbsp;SIM works with iPad&nbsp;Pro 12.9‑inch (1st and 2nd generation), iPad&nbsp;Pro
+                              9.7‑inch, iPad&nbsp;Pro 10.5‑inch, iPad (5th and 6th generation), iPad&nbsp;Air&nbsp;2,
+                              iPad&nbsp;mini&nbsp;3, and iPad&nbsp;mini&nbsp;4.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
