@@ -45,12 +45,12 @@ svg:not(:root) {
 
 .path-layer-figure {
   &.top-path {
-    background-image: url("../../../../../assets/images/top-path_large.svg");
+    background-image: url("assets/images/top-path_large.svg");
     @apply h-[42.6507905524vw]
   }
 
   &.bottom-path {
-    background-image: url("../../../../../assets/images/bottom-path_large.svg");
+    background-image: url("assets/images/bottom-path_large.svg");
     @apply h-[36.1116533281vw]
   }
 
@@ -100,19 +100,19 @@ svg:not(:root) {
 .control-icon {
   &.pause {
     background-size: initial;
-    background-image: url("../../../../../assets/images/pause_icon_large.svg");
+    background-image: url("assets/images/pause_icon_large.svg");
     @apply bg-no-repeat
   }
 
   &.play {
     background-size: initial;
-    background-image: url("../../../../../assets/images/play_icon_large.svg");
+    background-image: url("assets/images/play_icon_large.svg");
     @apply bg-no-repeat
   }
 
   &.buffer {
     background-size: initial;
-    background-image: url("../../../../../assets/images/buffer_icon_large.svg");
+    background-image: url("assets/images/buffer_icon_large.svg");
     @apply bg-no-repeat
   }
   @apply w-full h-full absolute
