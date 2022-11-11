@@ -27,7 +27,9 @@ import { OptionBoxComponent } from './components/option-box/option-box.component
     FooterBreadcrumbsComponent,
     OverviewInfoComponent,
     OverviewOptionsComponent,
-    OptionBoxComponent,
+    OptionBoxComponent
+  ],
+  exports: [
   ],
   imports: [
     CommonModule,

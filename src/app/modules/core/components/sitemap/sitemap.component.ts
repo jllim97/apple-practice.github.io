@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 export interface LinkModel {
   title?: string;
@@ -18,7 +18,7 @@ export interface SiteMapModel {
 })
 export class SitemapComponent implements OnInit {
 
-
+  @Input() isStore: boolean = false;
   shopAndLearn: SiteMapModel = {
     category: 'Shop and Learn',
     children: [
@@ -251,6 +251,9 @@ export class SitemapComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if(this.isStore) {
+      this.shopAndLearn.children.shift();
+    }
   }
 
   onClick(category: string) {

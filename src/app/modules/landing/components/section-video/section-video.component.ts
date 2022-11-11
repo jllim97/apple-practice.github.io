@@ -16,6 +16,9 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
   @ViewChild('videoButton', {static: true}) videoButton?: ElementRef;
   @ViewChild('buttonContainer', {static: true}) buttonContainer?: ElementRef;
   @ViewChild('sectionVideo', {static: true}) sectionVideo?: ElementRef;
+  opacityOne: number = 1;
+  opacityTwo: number = 1;
+  opacityThree: number = 1;
   isPlaying: boolean = true;
   video: any;
 
@@ -28,12 +31,11 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
   }
 
   ngAfterViewInit(): void {
-
+    const initialTopOfOne = this.one?.nativeElement.getBoundingClientRect().top;
     this.renderer.setStyle(this.one?.nativeElement, 'opacity', 0);
     fromEvent(window, 'scroll').subscribe(_ => {
       const buttonContainerTop = this.buttonContainer?.nativeElement.getBoundingClientRect().top;
       const featureWrapperTop = this.featureWrapper?.nativeElement.getBoundingClientRect().top;
-      console.log('button', this.buttonContainer?.nativeElement.getBoundingClientRect())
       if(featureWrapperTop>= buttonContainerTop) {
         this.renderer.removeClass(this.buttonContainer?.nativeElement, 'visible');
       } else {
@@ -43,22 +45,31 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
       // console.log('screen scroll Top', window.scrollY);
       // console.log('feature content top', featureContentTop)
       const topOfOne = this.one?.nativeElement.getBoundingClientRect().top;
+      console.log(this.one?.nativeElement.getBoundingClientRect())
+      // console.log(topOfOne);
+      // console.log(this.one?.nativeElement.getBoundingClientRect());
+      console.log(window.scrollY)
       // console.log(this.one?.nativeElement.getBoundingClientRect())
       // console.log(topOfOne);
       const topOfTwo = this.two?.nativeElement.getBoundingClientRect().top;
       const topOfThree = this.three?.nativeElement.getBoundingClientRect().top;
+
+      // console.log('window', window.scrollY);
       if (window.scrollY >= featureContentTop) {
-        let opacity = 1 - topOfOne / 100;
-        if (opacity >= 1) {
-          opacity = 1;
-        } else if (opacity <= 0) {
-          opacity = 0;
+        this.opacityOne += (window.scrollY - topOfOne) / 100000
+        if(this.opacityOne >= 1) {
+          this.opacityOne = 1;
         }
-        this.renderer.setStyle(this.one?.nativeElement, 'opacity', opacity);
-        this.renderer.setStyle(this.two?.nativeElement, 'opacity', opacity);
-        this.renderer.setStyle(this.three?.nativeElement, 'opacity', opacity);
+
+        this.renderer.setStyle(this.one?.nativeElement, 'opacity', this.opacityOne);
+        this.renderer.setStyle(this.two?.nativeElement, 'opacity', this.opacityTwo);
+        this.renderer.setStyle(this.three?.nativeElement, 'opacity', this.opacityThree);
       }
     })
+  }
+
+  setOpacity(elementTop: number) {
+
   }
 
   triggerVideo() {
@@ -79,4 +90,5 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
     this.video = document.getElementById('ipad-video');
     this.video.muted = true;
   }
+
 }

@@ -22,6 +22,10 @@
     transform: translate(12px);
     @apply mt-[66px]
   }
+  @media only screen and (max-width: 734px) {
+    transform: translate(10px);
+    @apply flex justify-center mt-[113px]
+  }
   transform: translate(11px);
   @apply mt-[57px] relative box-border basis-full max-w-full
 }
@@ -29,6 +33,10 @@
 .fan-image {
   @media only screen and (max-width: 1068px) {
     @apply w-[668px] h-[1076px]
+  }
+  @media only screen and (max-width: 734px) {
+    transform: translateX(27px);
+    @apply w-[391px] h-[620px]
   }
   @apply block w-[972px] h-[1590px]
 }
@@ -38,6 +46,10 @@
     transform: translate(6px, 235px);
     @apply w-[107px] h-[99px]
   }
+  @media only screen and (max-width: 734px) {
+    transform: translate(-124px, -34px);
+    @apply left-1/2 w-[106px] h-[104px]
+  }
   transform: translate(29px, 373px);
   @apply block w-[118px] h-[110px] absolute top-0 left-0
 }
@@ -46,6 +58,10 @@
   @media only screen and (max-width: 1068px) {
     transform: translate(535px, 625px);
     @apply w-[70px] h-[41px]
+  }
+  @media only screen and (max-width: 734px) {
+    transform: translate(-151px, 84px);
+    @apply left-[49%] w-[51px] h-[64px]
   }
   transform: translate(769px, 912px);
   @apply block w-[77px] h-[44px] absolute top-0 left-0
@@ -77,7 +93,7 @@
     @apply w-[522px] h-[446px]
   }
 
-  @media only scren and (max-width: 734px) {
+  @media only screen and (max-width: 734px) {
     transform: translateX(-84px);
     @apply relative w-[358px] h-[304px]
   }
@@ -104,24 +120,30 @@
 }
 
 .accessories-description-video {
+  .description-video-container {
+    video {
+      clip-path: inset(1px);
+      @apply w-full h-full z-[1] relative
+    }
+    @media only screen and (max-width: 734px) {
+      transform: translateX(10px);
+    }
+    @apply relative z-[-1]
+  }
+
   @media only screen and (max-width: 1068px) {
     transform: translate(15px);
-    @apply w-[382px] h-[308px]
+    @apply w-[326px] h-[262px]
   }
   @media only screen and (max-width: 734px) {
     transform: translate(-50%);
-    @apply ml-[50%] flex justify-items-stretch
+    @apply ml-[50%] flex justify-items-stretch w-[382px] h-[308px]
   }
   transform: translate(7px);
   @apply block w-[382px] h-[308px] relative
 }
 
-.description-video-container {
-  @media only screen and (max-width: 734px) {
-    transform: translateX(10px);
-  }
-  @apply relative z-[-1]
-}
+
 
 .accessories-icon-text {
   @media only screen and (max-width: 1068px) {

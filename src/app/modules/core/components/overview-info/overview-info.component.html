@@ -1,21 +1,51 @@
 <section class="pt-[17px] pb-[11px] border-t border-b border-footer-border-color">
-  <ol class="list-decimal tracking-normal info-notes px-[17px]" style="list-style-position: outside">
-    <ng-container [ngTemplateOutlet]="note"
-                  [ngTemplateOutletContext]="{'text': 'The display has rounded corners. When measured as a rectangle, the iPad screen is 10.86&nbsp;inches diagonally. Actual viewable area is less.'}"></ng-container>
-    <ng-container [ngTemplateOutlet]="note"
-                  [ngTemplateOutletContext]="{'text': 'Apple Pencil (1st generation), Magic Keyboard Folio, Smart Folio and other accessories are sold separately and are subject to availability. USB-C to Apple Pencil Adapter is required to work with iPad (10th generation).'}"></ng-container>
-    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Battery life varies by use and configuration. See apple.com/my/batteries for more information.'}"></ng-container>
-    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Data plan is required. 4G LTE Advanced and 4G LTE are available in selected markets and through selected carriers. Speeds are based on theoretical throughput and vary based on site conditions and carrier. For details on LTE support, contact your carrier and see apple.com/my/ipad/cellular.'}"></ng-container>
-    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Freeform is coming to iPadOS 16 in an update later this year.'}"></ng-container>
-  </ol>
-  <ul class="list-none">
-    <li class="note pb-[0.8em] text-[12px] text-footer-text font-normal">
-      Some features may not be available for all countries or all areas. <a class="text-footer-link hover:underline cursor-pointer"> View the complete list.</a>
-    </li>
-    <ng-container [ngTemplateOutlet]="note" [ngTemplateOutletContext]="{'text': 'Apps are available on the App Store. Title availability is subject to change.\n'}"></ng-container>
-  </ul>
+  <ng-container *ngIf="!isStore">
+    <ol class="list-decimal tracking-normal info-notes px-[17px]" style="list-style-position: outside">
+      <ng-container [ngTemplateOutlet]="note"
+                    [ngTemplateOutletContext]="{'text': 'The display has rounded corners. When measured as a rectangle, the iPad screen is 10.86&nbsp;inches diagonally. Actual viewable area is less.'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="note"
+                    [ngTemplateOutletContext]="{'text': 'Apple Pencil (1st generation), Magic Keyboard Folio, Smart Folio and other accessories are sold separately and are subject to availability. USB-C to Apple Pencil Adapter is required to work with iPad (10th generation).'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="note"
+                    [ngTemplateOutletContext]="{'text': 'Battery life varies by use and configuration. See apple.com/my/batteries for more information.'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="note"
+                    [ngTemplateOutletContext]="{'text': 'Data plan is required. 4G LTE Advanced and 4G LTE are available in selected markets and through selected carriers. Speeds are based on theoretical throughput and vary based on site conditions and carrier. For details on LTE support, contact your carrier and see apple.com/my/ipad/cellular.'}"></ng-container>
+      <ng-container [ngTemplateOutlet]="note"
+                    [ngTemplateOutletContext]="{'text': 'Freeform is coming to iPadOS 16 in an update later this year.'}"></ng-container>
+    </ol>
+    <ul class="list-none">
+      <li class="note pb-[0.8em] text-[12px] text-footer-text font-normal">
+        Some features may not be available for all countries or all areas. <a
+        class="text-footer-link hover:underline cursor-pointer"> View the complete list.</a>
+      </li>
+      <ng-container [ngTemplateOutlet]="note"
+                    [ngTemplateOutletContext]="{'text': 'Apps are available on the App Store. Title availability is subject to change.\n'}"></ng-container>
+    </ul>
+  </ng-container>
+  <div class="foot-notes text-footer-text " *ngIf="isStore">
+    <div class="pricing">
+      Price displayed are inclusive of all taxes and duties. Free delivery for all orders.
+    </div>
+    <div class="notes">
+      <p>Apple Fitness+ requires iOS&nbsp;14.3 or later, iPadOS&nbsp;14.3 or later, watchOS&nbsp;7.2 or later, and tvOS&nbsp;14.3 or later. </p>
+      <p>Apple Fitness+ requires Phone 8 or later or Apple Watch Series 3 or later paired with an iPhone 6s or later.</p>
+      <ol class="list-decimal tracking-normal info-notes px-[17px]" style="list-style-position: outside">
+        <ng-container [ngTemplateOutlet]="note"
+                      [ngTemplateOutletContext]="{'text': 'Available space is less and varies due to many factors. Storage capacity subject to change based on software version, settings, and iPad model. 1GB = 1 billion bytes; 1TB = 1 trillion bytes. Actual formatted capacity less.'}"></ng-container>
+        <ng-container [ngTemplateOutlet]="note"
+                      [ngTemplateOutletContext]="{'text': 'The displays have rounded corners. When measured diagonally as a rectangle, the iPad Pro 12.9-inch screen is 12.9 inches, the iPad Pro 11-inch screen is 11 inches, the iPad Air and iPad (10th generation) screens are 10.86 inches, and the iPad mini screen is 8.3 inches. Actual viewable area is less.'}"></ng-container>
+        <ng-container [ngTemplateOutlet]="note"
+                      [ngTemplateOutletContext]="{
+                      'text': 'Data plan required. 5G, Gigabit LTE, Gigabit‑class LTE, 4G LTE Advanced, 4G LTE and Wi‑Fi calling are available in selected markets and through selected network providers. Speeds are based on theoretical throughput and vary based on site conditions and network. For details on 5G and LTE support, contact your provider and see&nbsp;',
+                      'linkText': 'apple.com/ipad/cellular/', 'linkRef': 'https://www.apple.com/my/ipad/cellular'}"></ng-container>
+        <ng-container [ngTemplateOutlet]="note"
+                      [ngTemplateOutletContext]="{'text': 'USB-C to Apple Pencil Adapter required to work with iPad (10th&nbsp;generation). Subject to availability.'}"></ng-container>
+      </ol>
+      <p>Accessories sold separately.</p>
+      <p>** Subscription required for Apple TV+, Apple Fitness+, and Apple Arcade.</p>
+    </div>
+  </div>
 </section>
 
-<ng-template #note let-text="text">
-  <li class="note pb-[0.8em] text-[12px] text-footer-text font-normal">{{text}}</li>
+<ng-template #note let-text="text" let-linkRef="linkRef" let-linkText="linkText">
+  <li class="note pb-[0.8em] text-[12px] text-footer-text font-normal">{{text}}<a class="text-footer-link hover:underline" *ngIf="linkRef">{{linkText}}</a></li>
 </ng-template>

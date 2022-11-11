@@ -1,39 +1,68 @@
-<div class="w-full sticky-header bg-sticky-header z-50 sticky top-0" [ngClass]="{'border-b': !isNav}">
-  <div class="content h-full mx-auto">
-    <div class="ipad-title px-[16px] tablet:px-0 flex items-center">
-      <div>
-        <a [href]="'#'">iPad</a>
-      </div>
-      <div *ngIf="!isNav" class="price-value ml-auto">
-        From RM 2,099
-      </div>
-      <ul *ngIf="isNav" class="list-none h-full flex items-center ml-auto ">
-
-        <div class="hidden  h-full tablet:flex items-center">
-          <ng-container [ngTemplateOutlet]="link"
-                        [ngTemplateOutletContext]="{title:'Overview', link: '/', disabled: true}"></ng-container>
-          <ng-container [ngTemplateOutlet]="link"
-                        [ngTemplateOutletContext]="{title:'Why iPad', link: '#'}"></ng-container>
-          <ng-container [ngTemplateOutlet]="link"
-                        [ngTemplateOutletContext]="{title:'Tech Specs', link: '#'}"></ng-container>
+<nav class="sticky-header" [ngClass]="{'border-b': !isNav}">
+  <div class="sticky-header-content" [ngClass]="{'checked': isChevronTriggered}">
+    <div class="content mx-auto">
+      <div class="ipad-title px-[16px] tablet:px-0 flex items-center">
+        <div>
+          <a [href]="'#'">iPad</a>
         </div>
+        <div *ngIf="!isNav" class="price-value ml-auto">
+          From RM 2,099
+        </div>
+        <ul *ngIf="isNav" class="list-none h-full flex items-center ml-auto ">
 
-        <div class="ml-[24px]">
-          <a [href]="'/shop/buy-ipad/ipad'" class="nav-link-button">
+          <div class="hidden  h-full tablet:flex items-center">
+            <ng-container [ngTemplateOutlet]="link"
+                          [ngTemplateOutletContext]="{title:'Overview', link: '/', disabled: true}"></ng-container>
+            <ng-container [ngTemplateOutlet]="link"
+                          [ngTemplateOutletContext]="{title:'Why iPad', link: '#'}"></ng-container>
+            <ng-container [ngTemplateOutlet]="link"
+                          [ngTemplateOutletContext]="{title:'Tech Specs', link: '#'}"></ng-container>
+          </div>
+
+          <div class="block relative z-[1] ml-[24px] tablet:hidden">
+            <label (click)="triggerChevron()" class="mr-[-11px] cursor-pointer overflow-hidden block w-[40px] h-[30px]">
+              <span [ngClass]="{'checked': isChevronTriggered}" class="chevron"></span>
+            </label>
+          </div>
+          <div class="ml-[24px]">
+            <a [href]="'/shop/buy-ipad/ipad'" class="nav-link-button">
           <span class="h-full align-text-bottom whitespace-nowrap">
           View pricing
             </span>
-          </a>
+            </a>
+          </div>
+        </ul>
+      </div>
+      <div class="tablet:hidden px-[16px] tablet:px-0 flex items-center">
+        <div class="menu-content">
+          <div class="menu-wrapper" [ngClass]="{'checked': isChevronTriggered}">
+            <ul class="menu-list" [ngClass]="{'checked': isChevronTriggered}">
+              <ng-container [ngTemplateOutlet]="mobileLink"
+                            [ngTemplateOutletContext]="{title:'Overview', link: '/', disabled: true}"></ng-container>
+              <ng-container [ngTemplateOutlet]="mobileLink"
+                            [ngTemplateOutletContext]="{title:'Why iPad', link: '#'}"></ng-container>
+              <ng-container [ngTemplateOutlet]="mobileLink"
+                            [ngTemplateOutletContext]="{title:'Tech Specs', link: '#'}"></ng-container>
+            </ul>
+          </div>
         </div>
-      </ul>
-
-
+      </div>
     </div>
   </div>
-</div>
+</nav>
 
 <ng-template #link let-title="title" let-link="link" let-disabled="disabled">
   <a [routerLink]="[link]" [routerLinkActive]="'disabled'" class="sticky-header-nav-link" [href]="link">
     {{title}}
   </a>
 </ng-template>
+
+<ng-template #mobileLink let-title="title" let-link="link">
+  <li class="mobile-menu-item">
+    <a [routerLink]="[link]" [routerLinkActive]="'disabled'" class="sticky-header-nav-link block" [href]="link">
+      <span class="menu-item" [ngClass]="{'checked': isChevronTriggered}">{{title}}</span>
+    </a>
+  </li>
+</ng-template>
+
+<div class="overlay-box" [ngClass]="{'triggered': isChevronTriggered}"></div>

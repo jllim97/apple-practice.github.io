@@ -1,4 +1,4 @@
-<section class="mt-[181px]">
+<section class="mt-[181px] overflow-hidden">
   <div class="section-content max-medium:section-content-1068 max-small:section-content-734">
     <h2 class="design-title max-medium:ml-[8.3333333333%] max-small:basis-full max-small:max-w-full max-medium:basis-5/6 max-medium:max-w-5/6">
       Meet the <br> redesigned iPad.
@@ -15,27 +15,33 @@
       </div>
       <div class="hardware-picture">
         <picture class="fan-image">
+          <source srcset="../../../../../assets/images/fan__e9709q800z6u_small_2x.jpg" media="(max-width:734px)">
+          <source srcset="../../../../../assets/images/fan_large.jpg" media="(min-width:0px)">
           <img src="../../../../../assets/images/fan_large.jpg" alt="fan-ipad-image">
         </picture>
         <picture class="fan-text-1">
+          <source srcset="../../../../../assets/images/fan_snipe1__hwdacd4al3iy_small_2x.png" media="(max-width:734px)">
+          <source srcset="../../../../../assets/images/fan_text_1_large.png" media="(min-width:0px)">
           <img src="../../../../../assets/images/fan_text_1_large.png" alt="fan-text-1">
         </picture>
         <picture class="fan-text-2">
+          <source srcset="../../../../../assets/images/fan_snipe2__bxnf7i3t3542_small_2x.png" media="(max-width:734px)">
+          <source srcset="../../../../../assets/images/fan_text_2_large.png" media="(min-width:0px)">
           <img src="../../../../../assets/images/fan_text_2_large.png" alt="fan-text-2">
         </picture>
       </div>
     </div>
     <div class="row section-accessories items-start mb-[212px] max-1068:mb-[107px] max-734:mb-[97px]">
       <div class="box-border min-w-0 basis-8/12 max-w-8/12 max-medium:basis-7/12 max-medium:max-w-7/12 max-small:basis-full max-small:max-w-full hardware-video-container">
-        <div class="video-box">
-          <video appElementIsIn (visibilityChanged)="onVideoTwoIn($event)" #videoOne>
+        <div  class="video-box">
+          <video  #videoOne>
             <source src="../../../../../assets/images/design_one_large.mp4" type="video/mp4">
           </video>
         </div>
       </div>
       <div class="accessories-description max-1068:mt-[-3px] max-734:mt-[14px] box-border basis-1/3 max-w-1/3 max-medium:basis-5/12 max-medium:max-w-5/12 max-small:basis-full max-small:max-w-full mt-[30px]">
         <div class="description-block">
-          <picture class="accessories-icon">
+          <picture appElementIsIn (visibilityChanged)="onVideoOneIn($event)" class="accessories-icon">
             <img src="../../../../../assets/images/modular_icon_large.png" alt="image">
           </picture>
           <p class="description-text">
@@ -52,7 +58,7 @@
               <source src="../../../../../assets/images/design_two_large.mp4" type="video/mp4">
             </video>
           </div>
-          <picture class="accessories-icon-text">
+          <picture appElementIsIn (visibilityChanged)="onVideoTwoIn($event)" class="accessories-icon-text">
             <img src="../../../../../assets/images/accessories_icon_small_2x.png" alt>
           </picture>
         </div>

@@ -1,1 +1,513 @@
-<p>buy-ipad works!</p>
+<div
+  class="section-content max-medium:section-content-1068 max-small:section-content-734 min-h-[1000px] flex flex-row max-small:flex-col">
+  <div class="basis-1/2 max-small:basis-full max-small:max-w-full">
+    <div class="sticky-image">
+      <div class="image-container">
+        <div class="max-small:block hidden">
+          <ng-container [ngTemplateOutlet]="productTitleTemplate"
+                        [ngTemplateOutletContext]="{hideAvailability: true}"></ng-container>
+        </div>
+        <div class="image-wrapper min-h-[300px]">
+          <img width="507" height="523" class="main-image"
+               [src]="selectedColor === 'landing' ? '../../../../../assets/images/select-landing.jpeg' : '../../../../../assets/images/select-' + selectedColor + '.png'"
+               alt/>
+        </div>
+      </div>
+      <div class="block max-small:hidden">
+        <ng-container [ngTemplateOutlet]="offerTemplate"></ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="sticky-chat">
+    <div class="chat-container">
+      <div class="chat-svg-container">
+        <svg viewBox="0 0 35 35" class="chat-svgicon" role="img" aria-hidden="true" width="35px" height="35px">
+          <path fill="none" d="M0 .213h35v35H0z"></path>
+          <path
+            d="M14.4 21.048a13.284 13.284 0 01-1.344.076q-.411 0-.829-.025l-.334-.02-.279.185a15.461 15.461 0 01-4.388 2.109 16.182 16.182 0 001.365-2.054l.484-.923-.941-.446a7.127 7.127 0 01-4.384-6.276c0-4.114 4.274-7.461 9.529-7.461s9.529 3.347 9.529 7.461c0 .059-.009.116-.011.174.33-.029.664-.046 1-.046 0-.043.008-.085.008-.128 0-4.677-4.67-8.461-10.529-8.461S2.75 9 2.75 13.674a8.1 8.1 0 004.95 7.181 18.048 18.048 0 01-1.573 2.305c-.481.6-.236 1.28.613 1.28 1.17 0 3.557-1.1 5.425-2.343q.448.027.888.027c.455 0 .9-.028 1.34-.069-.011-.157-.029-.312-.029-.472 0-.183.018-.357.036-.535z"></path>
+          <path
+            d="M32.25 21.583c0-3.749-3.745-6.782-8.443-6.782h-.1c-.351 0-.694.027-1.032.063-3.876.413-6.886 2.906-7.269 6.036a5.584 5.584 0 00-.042.678c0 .117.015.23.021.345.222 3.737 3.994 6.428 8.6 6.428.235 0 .473-.007.712-.021a10.723 10.723 0 004.35 1.878c.681 0 .878-.543.492-1.026a14.459 14.459 0 01-1.263-1.848 6.5 6.5 0 003.974-5.751zm-4.4 4.852l-.942.446.484.923a10.673 10.673 0 00.759 1.2 14.28 14.28 0 01-2.9-1.5l-.279-.185-.334.02c-.219.013-.437.019-.653.019-4.21 0-7.515-2.462-7.614-5.629 0-.048-.009-.1-.009-.144a4.521 4.521 0 01.1-.922c.5-2.386 2.87-4.288 5.908-4.75a9.506 9.506 0 011.092-.1c.113 0 .225-.013.339-.013 4.1 0 7.443 2.594 7.443 5.782a5.517 5.517 0 01-3.394 4.853z"></path>
+        </svg>
+      </div>
+      <div class="chat-content-container">
+        <div class="chat-link">
+          <a href="#" class="chat-button">
+            Chat with an iPad Specialist
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden max-734:block">
+    <app-showcase></app-showcase>
+  </div>
+
+  <div class="basis-5/12 ml-[8.33333%] max-small:ml-0 max-w-5/12 box-border max-small:basis-full max-small:max-w-full">
+    <div class="block max-small:hidden">
+      <ng-container [ngTemplateOutlet]="productTitleTemplate"></ng-container>
+    </div>
+    <div class="specification-selection pt-[23px] pb-0 px-0">
+
+      <app-options-collapse [isFirst]="true" [selectedOption]="selectedColor | titlecase"
+                            [isCollapsed]="isColorSelected"
+                            (fadeHeaderClicked)="onChangeOptions('color')">
+        <div class="selection-group-wrapper">
+          <ng-container [ngTemplateOutlet]="colorOptions"
+                        [ngTemplateOutletContext]="{options: colors}"></ng-container>
+        </div>
+      </app-options-collapse>
+      <app-options-collapse [legend]="'Storage'" [isCollapsed]="isStorageSelected" [isDisable]="currentStep < 2"
+                            (fadeHeaderClicked)="onChangeOptions('storage')"
+                            [selectedOption]="selectedStorage" [isStorage]="true">
+
+        <div class="extra-info" (click)="showModal()">
+          <div class="extra-info-detail">
+            <div>
+              <div class="extra-info-header">
+                Plan ahead. Leave room for later.
+              </div>
+              <div class="extra-info-desc inline">The more storage your iPad has, the more room you have to store
+                digital content, now and in the future.
+              </div>
+            </div>
+          </div>
+          <a class="a-button">
+            <i class="text-nav-link-color button-link"></i>
+          </a>
+        </div>
+        <div class="selection-group-wrapper">
+          <ng-container [ngTemplateOutlet]="storageOptions"
+                        [ngTemplateOutletContext]="{options: storages}"></ng-container>
+        </div>
+      </app-options-collapse>
+
+      <app-options-collapse [legend]="'Connectivity'" [isCollapsed]="isConnectivitySelected"
+                            [isDisable]="currentStep < 3"
+                            (fadeHeaderClicked)="onChangeOptions('connectivity')"
+                            [selectedOption]="selectedConnectivity">
+
+        <div class="extra-info">
+          <div class="extra-info-detail">
+            <div>
+              <div class="extra-info-header">
+                Two fast ways to stay connected.
+              </div>
+              <div class="extra-info-desc inline">Every iPad can connect to a Wi‑Fi network. A Wi‑Fi + Cellular model
+                allows you to stay connected when Wi‑Fi isn’t available.
+              </div>
+            </div>
+          </div>
+          <a class="a-button">
+            <i class="text-nav-link-color button-link"></i>
+          </a>
+        </div>
+        <div class="selection-group-wrapper">
+          <ng-container [ngTemplateOutlet]="connectivityOptions"
+                        [ngTemplateOutletContext]="{options: connectivities}"></ng-container>
+        </div>
+      </app-options-collapse>
+
+      <app-options-collapse [legend]="'Personalize your device.'" [isCollapsed]="isEngravingOptionSelected"
+                            [isDisable]="currentStep < 4"
+                            (fadeHeaderClicked)="onChangeOptions('personalize')"
+                            [selectedOption]="selectedEngravingOption">
+
+        <div class="extra-info">
+          <div class="extra-info-detail">
+            <div>
+              <div class="extra-info-header">
+                Personalize your iPad for free.
+              </div>
+              <div class="extra-info-desc inline">Engrave a mix of emoji, names, initials, and numbers to make iPad
+                unmistakably yours. Only at Apple.
+              </div>
+            </div>
+          </div>
+          <a class="a-button">
+            <i class="text-nav-link-color button-link"></i>
+          </a>
+        </div>
+        <div class="selection-group-wrapper is-horizontal w-full flex-col">
+          <div class="w-full h-full mt-[.82353rem]">
+            <app-options-box [isCustom]="true" [option]="'Add Engraving'"
+                             [isSelected]="selectedEngravingOption === 'Add Engraving'" [id]="1"
+                             (onClicked)="onEngravingOptionSelected($event)">
+            <span class="flex flex-wrap items-center flex-row w-full justify-between">
+              <span
+                class="relative text-left pt-[5px] pr-[10px] box-border m-0 p-0 min-w-0 basis-9/12 max-w-[75%] max-small:basis-8/12 max-w-8/12">
+                <span class="tracking-normal font-semibold text-footer-category">Add Engraving</span>
+                <span class="text-left"></span>
+              </span>
+              <span
+                class="tracking-normal text-right text-[12px] font-normal text-footer-category basis-3/12 max-small:4/12 max-w-[25%] max-small:max-w-[33.33333%]">Free</span>
+            </span>
+            </app-options-box>
+          </div>
+          <div class="w-full h-full mt-[.82353rem]">
+            <app-options-box [isCustom]="true" [option]="'No Engraving'"
+                             [isSelected]="selectedEngravingOption === 'No Engraving'" [id]="2"
+                             (onClicked)="onEngravingOptionSelected($event)">
+             <span class="flex flex-wrap items-center flex-row w-full justify-between">
+              <span
+                class="relative text-left pt-[5px] pr-[10px] box-border m-0 p-0 min-w-0 basis-9/12 max-w-[75%] max-small:basis-8/12 max-w-8/12">
+                <span class="tracking-normal font-semibold text-footer-category">No Engraving</span>
+                <span class="text-left"></span>
+              </span>
+              <span
+                class="tracking-normal text-right text-[12px] font-normal text-footer-category basis-3/12 max-small:4/12 max-w-[25%] max-small:max-w-[33.33333%]"></span>
+            </span>
+            </app-options-box>
+          </div>
+        </div>
+      </app-options-collapse>
+
+
+      <app-options-collapse #accessoriesCollapse
+                            [legend]="'Apple Pencil, USB-C to Apple Pencil Adapter, and Magic Keyboard Folio.'"
+                            [isDisable]="currentStep < 5"
+                            [isCollapsed]="false"
+                            (fadeHeaderClicked)="onChangeOptions('add-on')"
+                            [selectedOption]="selectedAddOn">
+        <div class="extra-info">
+          <div class="extra-info-detail">
+            <div>
+              <div class="extra-info-header">
+                Get the most out of iPad.
+              </div>
+              <div class="extra-info-desc inline">Draw, take notes and sign documents with Apple Pencil. And edit
+                documents, write emails, create spreadsheets and more with a keyboard.
+
+              </div>
+            </div>
+          </div>
+          <a class="a-button">
+            <i class="text-nav-link-color button-link"></i>
+          </a>
+        </div>
+
+        <div class="selection-group-wrapper w-full flex-col">
+          <div class="w-full h-full mt-[.82353rem]">
+            <app-options-box *ngIf="!isApplePenAdded" [isCustom]="true" [option]="'applepencil'"
+                             [isSelected]="this.isAddOnSelected" [id]="1" [isRing]="true"
+                             (onClicked)="onAddOnSelected($event)">
+            <span class="flex flex-wrap items-center flex-row w-full justify-between">
+              <span
+                class="relative text-left pt-[5px] pr-[10px] box-border m-0 p-0 min-w-0 basis-9/12 max-w-[75%] max-small:basis-8/12 max-w-8/12">
+                <span class="tracking-normal font-semibold text-footer-category">Apple Pencil</span>
+                <span class="small-label">Learmore. And add.</span>
+                <span class="small-label">USB-C to Apple Pencil Adapter included</span>
+              </span>
+                         </span>
+            </app-options-box>
+            <div #applePencilContent class="apple-pencil-content">
+              <div #applePencilInner class="apple-pencil-inner-content">
+                <div *ngIf="isPenInfoVisible" class="inline-wrapper">
+                  <div class="gallery with-button relative">
+                    <div class="gallery-wrapper relative">
+                      <div class="gallery-dot-container ">
+                        <ul class="dotlist">
+                          <li class="dotlist-item">
+                            <button (click)="onDotSelected(0)" class="dot"
+                                    [ngClass]="{'selected': appleGalleryIndex===0}"></button>
+                          </li>
+                          <li class="dotlist-item">
+                            <button (click)="onDotSelected(1)" class="dot"
+                                    [ngClass]="{'selected': appleGalleryIndex===1}"></button>
+                          </li>
+                          <li class="dotlist-item">
+                            <button (click)="onDotSelected(2)" class="dot"
+                                    [ngClass]="{'selected': appleGalleryIndex===2}"></button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="inner-image-gallery">
+                        <div class="scroller" #pencilScroller
+                             style="left: 0%">
+                          <div class="inner-item">
+                            <div class="inner-gallery-content">
+                              <div class="inner-gallery-item-info">
+                                Perfect for creating art, drawing illustrations, marking up documents, and taking
+                                beautiful notes.
+                              </div>
+                              <div class="inner-gallery-item-image">
+                                <img width="320" height="264"
+                                     src="../../../../../assets/images/ipad-accessories-pencil-card1-202210.jpeg" alt>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="inner-item">
+                            <div class="inner-gallery-content">
+                              <div class="inner-gallery-item-info">
+                                Write and draw naturally with pixel-perfect precision and imperceptible lag.
+                              </div>
+                              <div class="inner-gallery-item-image">
+                                <img width="320" height="264"
+                                     src="../../../../../assets/images/ipad-accessories-pencil-card2-202210_GEO_MY.jpeg"
+                                     alt>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="inner-item">
+                            <div class="inner-gallery-content">
+                              <div class="inner-gallery-item-info">
+                                Tilt and pressure sensitive for varying line weights and shading, just like a
+                                conventional pencil.
+                              </div>
+                              <div class="inner-gallery-item-image">
+                                <img width="320" height="264"
+                                     src="../../../../../assets/images/ipad-accessories-pencil-card3-202210.jpeg" alt>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="button-container">
+                        <button class="previous arrow" *ngIf="appleGalleryIndex > 0" (click)="appleGalleryPrevious()">
+                          <
+                        </button>
+                        <button class="next arrow" *ngIf="appleGalleryIndex < 2" (click)="appleGalleryNext()"> >
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="addon-info relative">
+                    <div>
+                      <div class="addon-feature">
+                        <h3 class="addon-feature-title">
+                          Apple Pencil (1st generation)
+                        </h3>
+                        <div class="addon-feature-price">
+                          <div class="price-wrapper">
+                            <div class="price">
+                              <div class="total-price">
+                                <span class="price-value">RM 479.00</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button (click)="applePenAction(isApplePenAdded ? 'remove' : 'add')"
+                                class="mt-[14px] cursor-pointer addon-button is-link"
+                                [ngClass]="{'is-link': isApplePenAdded}">
+                          <span>{{isApplePenAdded ? 'Remove' : 'Add'}}</span>
+                        </button>
+                        <div class="addon-delivery">
+                          <div>
+                            <div class="addon-delivery-info">
+                              <div class="addon-delivery-text">
+                                <span>Delivery:</span>
+                                <span>In Stock</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="relative" *ngIf="!isPenInfoVisible">
+                  <div class="row">
+                    <div class="box-border m-0 p-0 min-w-0 basis-9/12 max-w-[75%]">
+                      <div class="edit-accessory font-[600]">
+                        <span>Apple Pencil</span>
+                      </div>
+                    </div>
+                    <div class="box-border m-0 p-0 min-w-0 basis-3/12 max-w-[25%] text-right">
+                      <button (click)="onEditApplePen()">
+                        <span class="edit-button">Edit</span>
+                      </button>
+                    </div>
+                    <div class="basis-full max-w-full">
+                      <div>
+                        <div>
+                          <div class="row p-[15px] pl-0">
+                            <div
+                              class="box-border m-0 p-0 min-w-0 basis-3/12 max-w-[25%] max-small:basis-4/12 max-w-[33.33333%]">
+                              <img class="w-[100px] h-[100px]" height="100" width="100"
+                                   src="../../../../../assets/images/MK0C2.png" alt>
+                            </div>
+                            <div
+                              class="pl-[15px] box-border m-0 p-0 min-w-0 basis-9/12 max-w-[75%] max-small:basis-8/12 max-small:max-w-[66.66667%]">
+                              <div class="apple-pen-info">
+                                <h3 class="apple-pen-info-title">
+                                  Apple Pencil (1st generation)
+                                </h3>
+                                <div class="apple-pen-info-price">
+                                  <div class="price-wrapper">
+                                    <div class="price">
+                                      <div class="total-price">
+                                        <span class="price-value">RM 479.00</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="addon-info is-added">
+                                  <div class="addon-delivery">
+                                    <div>
+                                      <div class="addon-delivery-info">
+                                        <div class="addon-delivery-text">
+                                          <span>Delivery:</span>
+                                          <span>In Stock</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </app-options-collapse>
+    </div>
+
+  </div>
+</div>
+<div class="block max-734:hidden">
+  <app-showcase></app-showcase>
+</div>
+<app-in-the-box></app-in-the-box>
+<app-explore></app-explore>
+<app-right-for-you [isStore]="true"></app-right-for-you>
+<app-faq></app-faq>
+<!--<span class="form-selector-title">-->
+<!--          64-->
+<!--                  <small>GB <sup>1</sup></small>-->
+<!--        </span>-->
+<!--<span class="label-small">-->
+<!--          <span class="full-price">-->
+<!--            From-->
+<!--            <span class="whitespace-nowrap">$449</span>-->
+<!--          </span>-->
+<!--        </span>-->
+<!--<span class="acmi-price">-->
+<!--          <span class="whitespace-nowrap">-->
+<!--             or $37.41-->
+<!--            <span>/mo. </span>-->
+<!--          </span>-->
+<!--          <span class="whitespace-nowrap">-->
+<!--            for 12-->
+<!--            <span>mo.</span>-->
+<!--            *-->
+<!--          </span>-->
+<!--        </span>-->
+<ng-template #colorOptions let-options="options">
+  <div class="selection-box" *ngFor="let option of options">
+    <div class="w-full">
+      <app-options-box [isColor]="true" [color]="option.color" [option]="option.color" [isSelected]="option.selected"
+                       [id]="option.id" (onClicked)="onColorSelected($event)">
+
+      </app-options-box>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #storageOptions let-options="options">
+  <div class="selection-box" *ngFor="let option of options">
+    <div class="w-full">
+      <app-options-box [isSpecs]="true" [option]="option.size" [isSelected]="option.selected" [id]="option.id"
+                       (onClicked)="onStorageSelected($event)">
+        <ng-container [ngTemplateOutlet]="sizeTemplate"
+                      [ngTemplateOutletContext]="{size: option.size, price: option.price}"></ng-container>
+      </app-options-box>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #connectivityOptions let-options="options">
+  <div class="selection-box" *ngFor="let option of options">
+    <div class="w-full">
+      <app-options-box [isSpecs]="true" [option]="option.connectivity" [isSelected]="option.selected" [id]="option.id"
+                       (onClicked)="onConnectivitySelected($event)">
+        <ng-container [ngTemplateOutlet]="connectivityTemplate"
+                      [ngTemplateOutletContext]="{connectivity: option.connectivity, price: option.price}"></ng-container>
+      </app-options-box>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #sizeTemplate let-size="size" let-price="price">
+  <span class="selector-title">{{size}}<small>GB<sup>1</sup></small></span>
+  <span class="label-small"> <span class="fullPrice">From <span
+    class="whitespace-nowrap">RM {{price}}</span></span></span>
+</ng-template>
+
+<ng-template #connectivityTemplate let-connectivity="connectivity" let-price="price">
+  <span class="selector-title normal">{{connectivity}}</span>
+  <span class="label-small">  <span
+    class="whitespace-nowrap">RM {{price}}</span></span>
+</ng-template>
+
+<app-modal [isVisible]="isModalVisible" (isClosed)="this.isModalVisible = false">
+  <h2 class="modal-title">
+    Make room for everything.
+  </h2>
+  <p class="modal-body">
+    How much storage you need depends on how you use your iPad. More room means you can store more apps, music, movies,
+    and books. It also lets you store RAW images, 4K videos, 3D renders, illustrations, and other large files.
+  </p>
+  <p class="modal-body">
+    Over time you may add more content to your iPad, so you’ll want to think about how your storage needs may change.
+  </p>
+  <p class="modal-footnote">
+    Storage is measured in gigabytes (GB) and terabytes (TB).
+  </p>
+  <p class="modal-footnote">
+    Note: Available space is less and varies due to many factors. Storage capacity subject to change based on software
+    version, settings, and iPad model. 1GB = 1 billion bytes; 1TB = 1 trillion bytes. Actual formatted capacity less.
+  </p>
+</app-modal>
+
+<ng-template #offerTemplate>
+  <div class="buy-offer pt-[40px] pb-0 px-0">
+    <ul class="flex text-center w-full flex-wrap flex-row mx-0 mt-[14px] mb-[26px]">
+      <li class="offer-item">
+        <div class="offer-item-container">
+          <svg viewBox="0 0 35 35" class="svg-icon" role="img" aria-hidden="true" width="35px" height="35px">
+            <path fill="none" d="M0 0h35v35H0z"></path>
+            <path
+              d="M27.687 10.547l-9-4.852a2.5 2.5 0 00-2.373 0l-9 4.852A2.5 2.5 0 006 12.748v9.471a2.494 2.494 0 001.313 2.2l9 4.852a2.5 2.5 0 002.373 0l9-4.852a2.5 2.5 0 001.314-2.2v-9.471a2.5 2.5 0 00-1.313-2.201zm-10.9-3.971a1.5 1.5 0 011.424 0l9 4.852c.041.022.072.055.11.081l-4.41 2.507-9.628-5.55zm-4.538 2.446l9.651 5.566-4.4 2.5-9.823-5.58c.038-.026.07-.059.111-.081zM7.788 23.539A1.5 1.5 0 017 22.219v-9.471a1.494 1.494 0 01.069-.436L17 17.957v10.516a1.494 1.494 0 01-.212-.082zM28 22.219a1.5 1.5 0 01-.788 1.32l-9 4.851a1.481 1.481 0 01-.212.082V17.957l9.931-5.646a1.5 1.5 0 01.069.436z"></path>
+          </svg>
+        </div>
+        <p class="offer-item-text">
+          <span>Free delivery</span>
+        </p>
+      </li>
+      <li class="offer-item">
+        <div class="offer-item-container">
+          <svg viewBox="0 0 35 35" class="svg-icon" role="img" aria-hidden="true" width="35px" height="35px">
+            <rect width="35" height="35" fill="none"></rect>
+            <path
+              d="M17.5,6.1A11.4,11.4,0,1,1,6.1,17.5,11.41294,11.41294,0,0,1,17.5,6.1m0-1.1A12.5,12.5,0,1,0,30,17.5,12.5,12.5,0,0,0,17.5,5Z"></path>
+            <path
+              d="M9.0498,19.6626a.51614.51614,0,0,1,.65821-.541A25.70105,25.70105,0,0,0,17.4873,20.3208a25.68829,25.68829,0,0,0,7.77735-1.19922.52156.52156,0,0,1,.66015.541,8.34671,8.34671,0,0,1-8.4375,7.35547A8.35447,8.35447,0,0,1,9.0498,19.6626Zm15.2129,2.584a7.008,7.008,0,0,0,.73828-2.14941,26.8936,26.8936,0,0,1-7.51368,1.06738,26.91758,26.91758,0,0,1-7.51562-1.06738A7.086,7.086,0,0,0,10.71,22.24658a22.4677,22.4677,0,0,0,6.77734,1.041A22.45514,22.45514,0,0,0,24.2627,22.24658ZM12.332,14.74463a1.64578,1.64578,0,0,1,1.48926-1.75391,1.64676,1.64676,0,0,1,1.50391,1.75391,1.659,1.659,0,0,1-1.50391,1.7666A1.65823,1.65823,0,0,1,12.332,14.74463Zm7.31738,0A1.647,1.647,0,0,1,21.165,12.99072a1.64583,1.64583,0,0,1,1.49023,1.75391,1.65827,1.65827,0,0,1-1.49023,1.7666A1.65918,1.65918,0,0,1,19.64941,14.74463Z"></path>
+          </svg>
+        </div>
+        <p class="offer-item-text">
+          <span>Free engraving available</span>
+        </p>
+      </li>
+    </ul>
+  </div>
+</ng-template>
+
+
+<ng-template #productTitleTemplate let-hideAvailability="hideAvailability">
+  <div class="product-title">
+    <div class="product-header text-[17px] pt-[40px]">
+      <div>
+        <div class="new pb-[1px]"> New</div>
+        <h1 class="title"> Buy iPad</h1>
+        (10th generation)
+        <p *ngIf="!hideAvailability" class="header-check-back">Check back later for&nbsp;availability.</p>
+      </div>
+    </div>
+  </div>
+</ng-template>

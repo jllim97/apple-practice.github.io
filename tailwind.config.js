@@ -11,10 +11,11 @@ module.exports = {
       'full': '100%',
       '5/12': '41.666667%',
       '7/12': '58.333333%',
-      '1/2': '50%'
+      '1/2': '50%',
+      '8/12': '66.6666666667%'
     },
     screens: {
-      'tablet': '832px',
+      'tablet': '833px',
       '734': '735px',
       '1068': '1069px',
       '374': '375px',
@@ -42,7 +43,9 @@ module.exports = {
         'black-2': '#f5f5f7',
         'footer-border-color': '#d2d2d7',
         'sticky-header': 'rgba(255,255,255,0.72)',
-        'nav-link-color':'#06c'
+        'nav-link-color':'#06c',
+        'arrow-container': 'rgba(210,210,215,.64)',
+        'arrow':'rgba(0,0,0,.56)'
       },
       fontFamily: {
         'sans': ["SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",'sans-serif', ...defaultTheme.fontFamily.sans]

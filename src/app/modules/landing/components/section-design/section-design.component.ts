@@ -21,10 +21,15 @@ export class SectionDesignComponent implements OnInit, AfterViewInit {
     v2.muted = true;
   }
 
-  onVideoTwoIn(event: HTMLElement) {
+  onVideoOneIn(event: HTMLElement) {
     console.log(event);
     let v1 = this.videoOne?.nativeElement;
     v1.play();
+  }
+
+  onVideoTwoIn(event: HTMLElement) {
+    let v2 = this.videoTwo?.nativeElement;
+    v2.play();
   }
 
 }

@@ -12,6 +12,7 @@
     clip-path: unset;
     @apply absolute z-[1] w-full h-full
   }
+
 }
 
 .reveal-mask {
@@ -132,9 +133,25 @@ svg:not(:root) {
 }
 
 .description {
+  will-change: opacity;
+  @media only screen and (max-width: 1068px) {
+    line-height: 1.0625;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin: calc(30px *-0.5) calc(30px*-1);
+
+    @apply text-[64px] tracking-[-0.009em] py-[100px] px-0
+  }
+
+  @media only screen and (max-width: 734px) {
+    text-shadow: rgb(0 0 0 / 50%) 0px 0px 100px;
+    line-height: 1.0834933333;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin: calc(75px *-0.5) calc(75px*-1);
+
+    @apply text-[48px] font-[700] tracking-[-0.003em] py-[75px] px-0
+  }
   text-shadow: rgba(0,0,0,.5) 0px 0px 200px;
-  padding: 200px;
   line-height: 1.05;
   margin: calc(200px *-0.5) calc(200px*-1);
-  @apply text-white text-center block text-[80px] font-[600]
+  @apply text-white text-center block text-[80px] font-[600] py-[200px]
 }

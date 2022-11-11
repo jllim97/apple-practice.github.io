@@ -15,6 +15,7 @@ export class ProductCardComponent implements OnInit {
   @Input() price: string = 'From RM 3,899';
   @Input() buttonTitle: string = 'View pricing';
   @Input() isHalf: boolean = false;
+  @Input() learnMoreVisible: boolean = true;
   constructor() { }
 
   ngOnInit(): void {

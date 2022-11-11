@@ -15,6 +15,9 @@
 }
 
 .overlay-content {
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply min-h-[100vh] w-full mx-auto my-0 min-w-0
+  }
   flex-grow: 1;
   @apply min-w-[48rem] p-0 max-w-[816px] bg-transparent m-auto relative
 }
@@ -24,6 +27,9 @@
 }
 
 .modal-content {
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply grow pb-[60px] pt-[76px] px-[6.25%]
+  }
   @apply pb-[60px] p-[76px]
 }
 

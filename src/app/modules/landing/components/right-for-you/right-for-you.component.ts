@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 export interface ProductModel {
   imageName: string;
@@ -16,6 +16,7 @@ export interface ProductModel {
   styleUrls: ['./right-for-you.component.scss']
 })
 export class RightForYouComponent implements OnInit {
+  @Input() isStore: boolean = false;
   products: Array<ProductModel> = [
     {
       imageName: 'ipad-pro',

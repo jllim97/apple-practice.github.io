@@ -14,6 +14,12 @@
 }
 
 @layer utilities {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+  }
 
   .feature-title {
     line-height: 1.0714285714;
@@ -26,6 +32,8 @@
     }
     @apply text-[56px] font-semibold tracking-[-0.005em] text-footer-category
   }
+
+
 
   .feature-description {
     line-height: 1.4211026316;
@@ -143,10 +151,42 @@
 
     @apply text-[19px] tracking-[.0075em] font-normal pr-[80px] max-w-[270px]
   }
+  .close-svg {
+    fill: currentColor;
+    transform: translate(-50%, -50%);
+    @apply absolute left-1/2 top-1/2 h-[20px] w-[20px] block;
+  }
 
+  .gallery-dot-container {
+    .dotlist {
+      .dotlist-item {
+        .dot {
+          &.selected {
+            background-color: rgba(0, 0, 0, .56);
+            @apply cursor-default
+          }
+
+          background-color: rgba(0, 0, 0, .16);
+          transition: background-color .1s linear;
+          line-height: 1.47059;
+          @apply absolute rounded-[50%] box-border p-0 h-[8px] w-[8px] top-0 left-0 text-[17px] font-normal tracking-[-.022em]
+        }
+
+        @apply list-none my-0 mx-[7px] w-[8px] h-[8px] relative
+      }
+
+      @apply m-0 list-none inline-flex justify-center
+    }
+
+
+    @apply bottom-0 text-center box-border absolute left-0 right-0 m-auto list-none inline-block z-[1]
+  }
 }
 
 .sticky-header-nav-link {
+  @media only screen and (max-width: 833px) {
+    @apply ml-0 inline-block w-full h-[44px] text-[14px]
+  }
   @apply text-[12px]
   text-black
   ml-[24px]

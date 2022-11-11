@@ -3,14 +3,17 @@
     <span class="breadcrumb-home" aria-hidden="true"></span>
   </a>
   <div class="breadcrumb-content">
-    <ol class="breadcrumb-list" vocab="http://schema.org/" typeof="BreadcrumbList">
-      <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
-        <a class="breadcrumb-link" href="/my/ipad/" property="item" typeof="WebPage">
+    <ol class="breadcrumb-list" >
+      <li class="breadcrumb-item">
+        <a class="breadcrumb-link" href="/my/ipad/" >
           iPad
         </a>
       </li>
-      <li class="breadcrumb-item" property="itemListElement" typeof="ListItem">
-        <span property="name">iPad&nbsp;10.9-inch</span>
+      <li class="breadcrumb-item">
+        <span>iPad&nbsp;10.9-inch</span>
+      </li>
+      <li *ngIf="isStore" class="breadcrumb-item">
+        <span>Buy iPad 10.9-inch</span>
       </li>
     </ol>
   </div>

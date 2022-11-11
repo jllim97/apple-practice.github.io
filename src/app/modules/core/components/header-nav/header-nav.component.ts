@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {transition, trigger, useAnimation} from "@angular/animations";
 import {flipInX, flipOutX} from "ng-animate";
 
@@ -7,7 +7,7 @@ import {flipInX, flipOutX} from "ng-animate";
   templateUrl: './header-nav.component.html',
   styleUrls: ['./header-nav.component.scss'],
   animations: [
-    trigger('flipInOut',[
+    trigger('flipInOut', [
       transition('visible => invisible', [
         useAnimation(flipOutX, {
           params: {timing: '0.5'}
@@ -17,7 +17,7 @@ import {flipInX, flipOutX} from "ng-animate";
         useAnimation(flipInX)
       ])
     ]),
-    trigger('openClose',[
+    trigger('openClose', [
       transition('visible => invisible', [
         useAnimation(flipOutX, {
           params: {timing: '0.5'}
@@ -48,8 +48,9 @@ export class HeaderNavComponent implements OnInit {
 
   isMenuBarVisible: boolean = true;
   isCloseVisible: boolean = false;
-
-  headerList: Array<{title?: string, link?: string, isIcon?: boolean}> = [
+  isSearchTriggered: boolean = false;
+  toExclude: string[] = ['apple', 'search','shopping_bag']
+  headerList: Array<{ title?: string, link?: string, isIcon?: boolean }> = [
     {
       title: 'apple',
       link: '#',
@@ -68,42 +69,42 @@ export class HeaderNavComponent implements OnInit {
     {
       title: 'ipad',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'iphone',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'watch',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'airpods',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'tv',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'only',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'accessories',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'support',
       link: '#',
-      isIcon:true
+      isIcon: true
     },
     {
       title: 'search',
@@ -116,7 +117,9 @@ export class HeaderNavComponent implements OnInit {
       isIcon: true
     },
   ]
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -127,23 +130,32 @@ export class HeaderNavComponent implements OnInit {
 
   triggerDrawer = () => {
     this.isCloseVisible = true;
+    document.getElementById('html')?.classList.add('overflow-hidden')
   }
 
   onMenuBarClosed(event: any) {
     console.log('menu bar', event);
-    if(event.fromState === 'visible' && event.toState === 'invisible') {
+    if (event.fromState === 'visible' && event.toState === 'invisible') {
       this.isCloseVisible = true;
     }
   }
 
   onCloseClosed(event: any) {
     console.log(event);
-    if(event.toState === 'invisible') {
+    if (event.toState === 'invisible') {
       this.triggerDrawer();
     }
   }
 
   triggerClose() {
     this.isCloseVisible = !this.isCloseVisible;
+    document.getElementById('html')?.classList.remove('overflow-hidden')
+  }
+
+  triggerSearch() {
+    this.isSearchTriggered = true;
+  }
+  cancelTrigger() {
+    this.isSearchTriggered = false;
   }
 }

@@ -5,7 +5,7 @@ import {async, delay, filter, fromEvent, Subject, takeUntil} from "rxjs";
   selector: '[appElementIsIn]'
 })
 export class ElementIsInDirective implements OnInit, AfterViewInit, OnDestroy{
-  @Input() intersectionDebounce = 300;
+  @Input() intersectionDebounce = 0;
   @Input() intersectionRootMargin = '0px';
   @Input() intersectionRoot?: HTMLElement;
   @Input() intersectionThreshold: number | number[] = 1;
@@ -79,7 +79,7 @@ export class ElementIsInDirective implements OnInit, AfterViewInit, OnDestroy{
         if(isStillVisible) {
           console.log('emit');
           this.visibilityChanged.emit(target)
-          observer.unobserve(target);
+          // observer.unobserve(target);
         }
       })
   }

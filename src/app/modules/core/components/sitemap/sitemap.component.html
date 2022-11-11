@@ -42,7 +42,7 @@
 <!--    </div>-->
 <!--  </div>-->
 
-<div #mobileSitemap class="flex tablet:hidden z-[2] flex-col flex-wrap">
+<div #mobileSitemap class="flex tablet:hidden z-[2] flex-col flex-wrap"  [ngClass]="{'px-[16px]': isStore}">
   <ng-container *ngFor="let sitemap of mobileSitemaps;trackBy: trackyBy">
     <div class=" overflow-hidden">
       <div class="collapsible-wrapper relative  z-[2] cursor-auto border-b border-footer-border-color"
