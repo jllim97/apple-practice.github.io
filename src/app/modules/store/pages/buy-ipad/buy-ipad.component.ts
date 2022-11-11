@@ -182,7 +182,6 @@ export class BuyIpadComponent implements OnInit {
   }
 
   onEngravingOptionSelected(event: any) {
-    console.log('clicked')
     const {option} = event;
     this.selectedEngravingOption = option;
     this.isEngravingOptionSelected = true;
@@ -214,7 +213,6 @@ export class BuyIpadComponent implements OnInit {
     this.isAddOnSelected = !this.isAddOnSelected;
     if (this.isAddOnSelected) {
       const {height} = this.applePencilInner?.nativeElement.getBoundingClientRect();
-      console.log(height);
       this.updateAddOnParentHeight(height);
       this.renderer.setStyle(this.applePencilContent?.nativeElement, 'height', `${height}px`)
     } else {

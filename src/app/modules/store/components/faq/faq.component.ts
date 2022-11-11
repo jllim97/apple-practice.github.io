@@ -39,7 +39,6 @@ export class FaqComponent implements OnInit {
   }
 
   onQuestionClick(questionNumber: number) {
-    console.log(questionNumber);
     switch (questionNumber) {
       case 1:
         this.isQuestionOneVisible = !this.isQuestionOneVisible;

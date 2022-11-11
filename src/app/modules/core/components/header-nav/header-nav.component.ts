@@ -125,7 +125,6 @@ export class HeaderNavComponent implements OnInit {
   }
 
   onClick = () => {
-    console.log('clicked');
   }
 
   triggerDrawer = () => {
@@ -134,14 +133,12 @@ export class HeaderNavComponent implements OnInit {
   }
 
   onMenuBarClosed(event: any) {
-    console.log('menu bar', event);
     if (event.fromState === 'visible' && event.toState === 'invisible') {
       this.isCloseVisible = true;
     }
   }
 
   onCloseClosed(event: any) {
-    console.log(event);
     if (event.toState === 'invisible') {
       this.triggerDrawer();
     }

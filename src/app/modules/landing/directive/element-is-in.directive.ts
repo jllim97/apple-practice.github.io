@@ -64,7 +64,6 @@ export class ElementIsInDirective implements OnInit, AfterViewInit, OnDestroy{
 
   private startObserving() {
     if(!this.observer) {
-      console.log('returnedd')
       return;
     }
 
@@ -75,9 +74,7 @@ export class ElementIsInDirective implements OnInit, AfterViewInit, OnDestroy{
 
         const target = entry.target as HTMLElement;
         const isStillVisible = await this.isVisible(target);
-        console.log(isStillVisible);
         if(isStillVisible) {
-          console.log('emit');
           this.visibilityChanged.emit(target)
           // observer.unobserve(target);
         }

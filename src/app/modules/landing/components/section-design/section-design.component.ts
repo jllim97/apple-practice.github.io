@@ -25,7 +25,6 @@ export class SectionDesignComponent implements OnInit, AfterViewInit {
   }
 
   onVideoOneIn(event: HTMLElement) {
-    console.log(event);
     if (!this.isV1Played) {
       let v1 = this.videoOne?.nativeElement;
       v1.play();

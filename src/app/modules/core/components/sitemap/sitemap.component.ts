@@ -263,7 +263,6 @@ export class SitemapComponent implements OnInit {
       }
       return sitemap;
     });
-    console.log(category)
   }
 
   trackyBy(index:number, item:any) {

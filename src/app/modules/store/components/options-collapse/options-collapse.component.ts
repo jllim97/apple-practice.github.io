@@ -93,7 +93,6 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
     if (this.collapseContent) {
       const contentBounding = this.collapseContent.nativeElement.getBoundingClientRect();
       const {height} = contentBounding;
-      console.log(height)
       this.renderer.setStyle(this.heightWrapper?.nativeElement, 'height', `${customHeight ? customHeight + height : height}px`);
     }
   }

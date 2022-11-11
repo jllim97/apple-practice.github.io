@@ -61,7 +61,6 @@ export class ShowcaseComponent implements OnInit {
   addEnlargeStyle() {
     if (this.galleryContainer) {
       const bounding = this.galleryContainer.nativeElement.getBoundingClientRect();
-      console.log(bounding);
       this.renderer.setStyle(this.galleryContainer.nativeElement, 'top', `${-bounding.top}px`);
       if(document.documentElement.clientWidth <= 946) {
         this.renderer.setStyle(this.galleryContainer.nativeElement, 'left', `0px`);

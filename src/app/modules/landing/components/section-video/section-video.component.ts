@@ -35,41 +35,7 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
     this.animateElement(this.one);
     this.animateElement(this.two);
     this.animateElement(this.three);
-    // const initialTopOfOne = this.one?.nativeElement.getBoundingClientRect().top;
-    // this.renderer.setStyle(this.one?.nativeElement, 'opacity', 0);
-    // fromEvent(window, 'scroll').subscribe(_ => {
-    //   const buttonContainerTop = this.buttonContainer?.nativeElement.getBoundingClientRect().top;
-    //   const featureWrapperTop = this.featureWrapper?.nativeElement.getBoundingClientRect().top;
-    //   if(featureWrapperTop>= buttonContainerTop) {
-    //     this.renderer.removeClass(this.buttonContainer?.nativeElement, 'visible');
-    //   } else {
-    //     this.renderer.addClass(this.buttonContainer?.nativeElement, 'visible');
-    //   }
-    //   const featureContentTop = this.featureContent?.nativeElement.getBoundingClientRect().top;
-    //   // console.log('screen scroll Top', window.scrollY);
-    //   // console.log('feature content top', featureContentTop)
-    //   const topOfOne = this.one?.nativeElement.getBoundingClientRect().top;
-    //   console.log(this.one?.nativeElement.getBoundingClientRect())
-    //   // console.log(topOfOne);
-    //   // console.log(this.one?.nativeElement.getBoundingClientRect());
-    //   console.log(window.scrollY)
-    //   // console.log(this.one?.nativeElement.getBoundingClientRect())
-    //   // console.log(topOfOne);
-    //   const topOfTwo = this.two?.nativeElement.getBoundingClientRect().top;
-    //   const topOfThree = this.three?.nativeElement.getBoundingClientRect().top;
-    //
-    //   // console.log('window', window.scrollY);
-    //   if (window.scrollY >= featureContentTop) {
-    //     this.opacityOne += (window.scrollY - topOfOne) / 100000
-    //     if(this.opacityOne >= 1) {
-    //       this.opacityOne = 1;
-    //     }
-    //
-    //     this.renderer.setStyle(this.one?.nativeElement, 'opacity', this.opacityOne);
-    //     this.renderer.setStyle(this.two?.nativeElement, 'opacity', this.opacityTwo);
-    //     this.renderer.setStyle(this.three?.nativeElement, 'opacity', this.opacityThree);
-    //   }
-    // })
+
   }
 
   setOpacity(elementTop: number) {
@@ -77,7 +43,6 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
   }
 
   triggerVideo() {
-    console.log('clicked')
     if (this.video) {
       if (this.isPlaying) {
         this.video.pause();

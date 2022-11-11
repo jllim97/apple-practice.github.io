@@ -22,8 +22,6 @@ export class InTheBoxComponent implements OnInit {
     this.currentLeft = 100 * (diff);
     // this.img2?.nativeElement.scrollIntoView({inline:'center', behavior:'smooth'})
     const bounding = this.galleryImageWrapper?.nativeElement.getBoundingClientRect();
-    console.log(bounding);
-    console.log(this.galleryContainer?.nativeElement.transform)
 
 
     switch (index) {
