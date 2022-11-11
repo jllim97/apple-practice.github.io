@@ -146,7 +146,7 @@ svg:not(:root) {
     text-shadow: rgb(0 0 0 / 50%) 0px 0px 100px;
     line-height: 1.0834933333;
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    margin: calc(75px *-0.5) calc(75px*-1);
+    margin: 0;
 
     @apply text-[48px] font-[700] tracking-[-0.003em] py-[75px] px-0
   }

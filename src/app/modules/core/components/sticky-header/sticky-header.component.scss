@@ -203,3 +203,7 @@
   transition: opacity 0.2s ease;
   @apply fixed top-0 left-0 w-0 h-0 z-[9996] opacity-0
 }
+
+.buy-button {
+  transform: translateY(-2px);
+}

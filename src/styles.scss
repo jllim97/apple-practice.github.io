@@ -4,8 +4,13 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url("./assets/SF-Pro.ttf");
+  }
   * {
     box-sizing: unset;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
   }
 
   h2 + * {
