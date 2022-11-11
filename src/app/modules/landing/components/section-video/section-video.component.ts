@@ -1,5 +1,6 @@
 import {AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {fromEvent} from "rxjs";
+import {animate, AnimationControls, scroll, ScrollOffset} from "motion"
 
 @Component({
   selector: 'app-section-video',
@@ -31,41 +32,44 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
   }
 
   ngAfterViewInit(): void {
-    const initialTopOfOne = this.one?.nativeElement.getBoundingClientRect().top;
-    this.renderer.setStyle(this.one?.nativeElement, 'opacity', 0);
-    fromEvent(window, 'scroll').subscribe(_ => {
-      const buttonContainerTop = this.buttonContainer?.nativeElement.getBoundingClientRect().top;
-      const featureWrapperTop = this.featureWrapper?.nativeElement.getBoundingClientRect().top;
-      if(featureWrapperTop>= buttonContainerTop) {
-        this.renderer.removeClass(this.buttonContainer?.nativeElement, 'visible');
-      } else {
-        this.renderer.addClass(this.buttonContainer?.nativeElement, 'visible');
-      }
-      const featureContentTop = this.featureContent?.nativeElement.getBoundingClientRect().top;
-      // console.log('screen scroll Top', window.scrollY);
-      // console.log('feature content top', featureContentTop)
-      const topOfOne = this.one?.nativeElement.getBoundingClientRect().top;
-      console.log(this.one?.nativeElement.getBoundingClientRect())
-      // console.log(topOfOne);
-      // console.log(this.one?.nativeElement.getBoundingClientRect());
-      console.log(window.scrollY)
-      // console.log(this.one?.nativeElement.getBoundingClientRect())
-      // console.log(topOfOne);
-      const topOfTwo = this.two?.nativeElement.getBoundingClientRect().top;
-      const topOfThree = this.three?.nativeElement.getBoundingClientRect().top;
-
-      // console.log('window', window.scrollY);
-      if (window.scrollY >= featureContentTop) {
-        this.opacityOne += (window.scrollY - topOfOne) / 100000
-        if(this.opacityOne >= 1) {
-          this.opacityOne = 1;
-        }
-
-        this.renderer.setStyle(this.one?.nativeElement, 'opacity', this.opacityOne);
-        this.renderer.setStyle(this.two?.nativeElement, 'opacity', this.opacityTwo);
-        this.renderer.setStyle(this.three?.nativeElement, 'opacity', this.opacityThree);
-      }
-    })
+    this.animateElement(this.one);
+    this.animateElement(this.two);
+    this.animateElement(this.three);
+    // const initialTopOfOne = this.one?.nativeElement.getBoundingClientRect().top;
+    // this.renderer.setStyle(this.one?.nativeElement, 'opacity', 0);
+    // fromEvent(window, 'scroll').subscribe(_ => {
+    //   const buttonContainerTop = this.buttonContainer?.nativeElement.getBoundingClientRect().top;
+    //   const featureWrapperTop = this.featureWrapper?.nativeElement.getBoundingClientRect().top;
+    //   if(featureWrapperTop>= buttonContainerTop) {
+    //     this.renderer.removeClass(this.buttonContainer?.nativeElement, 'visible');
+    //   } else {
+    //     this.renderer.addClass(this.buttonContainer?.nativeElement, 'visible');
+    //   }
+    //   const featureContentTop = this.featureContent?.nativeElement.getBoundingClientRect().top;
+    //   // console.log('screen scroll Top', window.scrollY);
+    //   // console.log('feature content top', featureContentTop)
+    //   const topOfOne = this.one?.nativeElement.getBoundingClientRect().top;
+    //   console.log(this.one?.nativeElement.getBoundingClientRect())
+    //   // console.log(topOfOne);
+    //   // console.log(this.one?.nativeElement.getBoundingClientRect());
+    //   console.log(window.scrollY)
+    //   // console.log(this.one?.nativeElement.getBoundingClientRect())
+    //   // console.log(topOfOne);
+    //   const topOfTwo = this.two?.nativeElement.getBoundingClientRect().top;
+    //   const topOfThree = this.three?.nativeElement.getBoundingClientRect().top;
+    //
+    //   // console.log('window', window.scrollY);
+    //   if (window.scrollY >= featureContentTop) {
+    //     this.opacityOne += (window.scrollY - topOfOne) / 100000
+    //     if(this.opacityOne >= 1) {
+    //       this.opacityOne = 1;
+    //     }
+    //
+    //     this.renderer.setStyle(this.one?.nativeElement, 'opacity', this.opacityOne);
+    //     this.renderer.setStyle(this.two?.nativeElement, 'opacity', this.opacityTwo);
+    //     this.renderer.setStyle(this.three?.nativeElement, 'opacity', this.opacityThree);
+    //   }
+    // })
   }
 
   setOpacity(elementTop: number) {
@@ -89,6 +93,14 @@ export class SectionVideoComponent implements OnInit, AfterViewInit, AfterViewCh
   ngAfterViewChecked(): void {
     this.video = document.getElementById('ipad-video');
     this.video.muted = true;
+  }
+
+  animateElement(element?: ElementRef) {
+    const animationControl: AnimationControls = animate(element?.nativeElement, { opacity: [0, 0.3, 1, 1, 0.3, 0]});
+    scroll(animationControl, {
+      target: element?.nativeElement,
+      offset: ["start end", "end end", "start start", "end start"]
+    })
   }
 
 }
