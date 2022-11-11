@@ -227,22 +227,31 @@ export class BuyIpadComponent implements OnInit {
   }
 
   updateAddOnParentHeight(height?: number) {
-      this.accessoriesCollapse?.setHeight(height);
+    this.accessoriesCollapse?.setHeight(height);
   }
 
   applePenAction(action: string) {
-    if(action === 'add') {
+    if (action === 'add') {
       this.isApplePenAdded = true;
       this.isPenInfoVisible = false;
-    } else if (action ==='remove') {
+      setTimeout(() => {
+        this.updateAddOnParentHeight()
+      }, 150)
+    } else if (action === 'remove') {
       this.isApplePenAdded = false;
       this.isPenInfoVisible = true;
+
+      setTimeout(() => {
+        this.updateAddOnParentHeight()
+      }, 150)
     }
-    }
+  }
 
   onEditApplePen() {
     this.isPenInfoVisible = true;
-  }
+    setTimeout(() => {
+      this.updateAddOnParentHeight()
+    }, 150)  }
 
   showModal() {
     this.isModalVisible = true;

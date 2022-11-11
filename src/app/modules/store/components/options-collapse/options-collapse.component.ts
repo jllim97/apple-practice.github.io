@@ -10,6 +10,7 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
+import {debounce, debounceTime, distinctUntilChanged, fromEvent, Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-options-collapse',
@@ -23,10 +24,11 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
   @ViewChild('collapseContent') collapseContent?: ElementRef;
   @ViewChild('wrapper') wrapper?: ElementRef;
   @Input() legend: string = 'Finish';
-  @Input() selectedOption: string | TemplateRef<void>= 'Blue';
+  @Input() selectedOption: string | TemplateRef<void> = 'Blue';
   @Input() categories: string = 'Finish';
   @Input() isNoBorder: boolean = false;
   @Output() fadeHeaderClicked = new EventEmitter<string>();
+  destroy$: Subject<void> = new Subject<void>()
 
   public get isCollapsed() {
     return this._isCollapse;
@@ -35,9 +37,9 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
   @Input()
   set isCollapsed(isCollapse: boolean) {
     this._isCollapse = isCollapse;
-    if(this._isCollapse) {
+    if (this._isCollapse) {
       this.renderer.setStyle(this.heightWrapper?.nativeElement, 'height', `0px`);
-      if(this.wrapper) {
+      if (this.wrapper) {
         // const y = this.wrapper.nativeElement.getBoundingClientRect().top + window.scrollY + 42;
         // window.scroll({
         //   top: y,
@@ -46,7 +48,7 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
       }
 
     } else {
-     this.setHeight();
+      this.setHeight();
 
     }
   }
@@ -54,7 +56,9 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
   @Input() isStorage: boolean = false;
   @Input() isFirst: boolean = false;
   @Input() isDisable: boolean = false;
-  constructor(private renderer: Renderer2) { }
+
+  constructor(private renderer: Renderer2) {
+  }
 
   ngOnInit(): void {
   }
@@ -66,14 +70,31 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.setHeight();
+    fromEvent(window, 'resize').pipe(takeUntil(this.destroy$),
+      debounceTime(500),
+      distinctUntilChanged())
+      .subscribe(_ => {
+        if (!this._isCollapse) {
+          this.setHeight();
+        }
+      })
+
+    fromEvent(window, 'scroll').pipe(takeUntil(this.destroy$),
+      debounceTime(500),
+      distinctUntilChanged())
+      .subscribe(_ => {
+        if (!this._isCollapse) {
+          this.setHeight();
+        }
+      })
   }
 
   setHeight(customHeight?: number) {
-    if(this.collapseContent) {
+    if (this.collapseContent) {
       const contentBounding = this.collapseContent.nativeElement.getBoundingClientRect();
       const {height} = contentBounding;
       console.log(height)
-      this.renderer.setStyle(this.heightWrapper?.nativeElement, 'height', `${customHeight ? customHeight+height : height}px`);
+      this.renderer.setStyle(this.heightWrapper?.nativeElement, 'height', `${customHeight ? customHeight + height : height}px`);
     }
   }
 }
