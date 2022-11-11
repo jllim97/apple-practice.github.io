@@ -26,11 +26,17 @@
 }
 
 .store-right-for-you {
+  .store-compare-grid {
+    @media only screen and (max-width: 1023px) and (max-width: 736px) {
+      @apply pb-[52px]
+    }
+      @apply pb-[80px]
+  }
   &:before {
     content: ' ';
     @apply table
   }
-  @media only screen and (max-width: 1023px) and (max-width: 736px) {
+  @media only screen and (max-width: 1068px) {
     @apply w-[87.5%]
   }
   @apply relative mx-auto w-[980px]
