@@ -26,6 +26,7 @@
     line-height: 1.33337;
     @apply text-[12px] font-semibold tracking-[-.01em] mx-0 mt-[6px] mb-0
   }
+
   @apply text-center sticky top-0
 
 }
@@ -53,6 +54,7 @@
   &.is-horizontal {
     @apply mx-0
   }
+
   @apply flex flex-wrap flex-row mx-[-0.41176em] mt-0
 }
 
@@ -63,14 +65,18 @@
 .selector {
   &.checked {
     border-width: 2px;
+
     &:hover {
       @apply border-primary
     }
+
     @apply border-primary p-[14px];
   }
+
   &:hover {
     @apply border-[#86868b];
   }
+
   background-color: hsla(0, 0%, 100%, .8);
   border-width: 1px;
   @apply cursor-pointer p-[15px] box-border min-h-[4.88235rem] text-[17px] font-normal border-[#d2d2d7] tracking-[-0.22em] w-full h-auto rounded-[12px] flex flex-col items-center justify-center text-footer-category
@@ -92,10 +98,12 @@
     line-height: 1;
     @apply text-[19px] font-semibold tracking-[.012em]
   }
+
   &.normal {
     line-height: 1.23536;
     @apply text-[17px] font-semibold tracking-[-.022em]
   }
+
   line-height: 1;
   @apply text-[29px] text-footer-category font-normal tracking-[.008em]
 
@@ -123,6 +131,7 @@
   &:after {
     content: "";
   }
+
   font-family: SF Pro Icons;
   @apply inline-block relative z-[1]
 }
@@ -142,18 +151,23 @@
       .gallery-wrapper {
         @apply pt-[15px] pb-[30px] relative
       }
+
       &.with-button {
         @apply relative
       }
     }
+
     &.enter {
       @apply overflow-visible
     }
-    @apply  min-h-[50px] overflow-hidden
+
+    @apply min-h-[50px] overflow-hidden
   }
+
   &.enter {
     @apply overflow-visible
   }
+
   transition-property: height;
   transition-timing-function: ease-in-out;
   transition-duration: .4s;
@@ -169,45 +183,57 @@
             object-fit: contain;
             @apply inline-block max-w-full max-h-[100%]
           }
+
           @apply h-[243px] mt-auto
         }
+
         .inner-gallery-item-info {
           line-height: 1.47059;
           @apply whitespace-normal pt-[40px] px-[10px] pb-[28px] font-semibold text-[17px] tracking-[-.022em]
         }
+
         flex: 1;
         @apply flex flex-col
       }
+
       @apply bg-[#fafafa] flex rounded-[18px] text-center cursor-pointer w-full overflow-hidden
     }
+
     transition: all 400ms linear 0s;
     transform: translateX(0px);
     @apply w-[300%] whitespace-nowrap flex relative
   }
+
   @apply w-[320px] my-0 mx-auto rounded-[18px] overflow-hidden relative min-h-[100px]
 }
 
 .button-container {
   .arrow {
     &:hover {
-      background-color: rgba(223,223,227,.6976);
-      color: rgba(0,0,0,.64);
+      background-color: rgba(223, 223, 227, .6976);
+      color: rgba(0, 0, 0, .64);
     }
+
     &.disabled {
       @apply opacity-0 cursor-default
     }
-    transition: background-color .1s linear,color .1s linear,opacity .1s linear;
+
+    transition: background-color .1s linear, color .1s linear, opacity .1s linear;
     @apply text-[36px] w-[2.13rem] h-[2.13rem] rounded-[2.13rem] bg-arrow-container text-arrow font-[300] top-1/2 block overflow-hidden absolute text-center z-[1]
   }
+
   .next {
     &:after {
       @apply z-[1] relative inline-block
     }
+
     @apply right-0 mt-[-1.52941rem]
   }
+
   .previous {
     @apply left-0 mt-[-1.52941rem]
   }
+
   @apply m-0 list-none
 }
 
@@ -217,41 +243,52 @@
       line-height: 1.42859;
       @apply text-[14px] font-normal tracking-[0.016em]
     }
+
     @apply pt-[10px] text-[#636373]
   }
+
   .addon-button {
     &.is-link {
       &:hover {
         @apply underline
       }
+
       line-height: 1.42859;
       @apply rounded-none bg-transparent text-nav-link-color p-0 text-[14px] font-normal tracking-[-.016em]
     }
+
     line-height: 1.33337;
     @apply text-[12px] font-normal tracking-[-.01em] min-w-[23px] py-[4px] px-[11px] cursor-pointer inline-block text-center whitespace-nowrap rounded-[980px] bg-[#0071e3] text-white
   }
+
   .addon-feature-price {
     .price-wrapper {
       .total-price {
         .price-value {
 
         }
+
         line-height: 1.16667;
         @apply m-0 font-semibold tracking-[.009em]
       }
+
       line-height: 1.16667;
       @apply m-0 font-semibold tracking-[.009em]
     }
+
     line-height: 1.42859;
     @apply mt-0 mx-0 mb-[3px] text-[14px] font-semibold tracking-[.015em]
   }
+
   .addon-feature-title {
     line-height: 1.47059;
     @apply text-[17px] tracking-[-.022em] font-semibold text-footer-category
   }
+
   &.is-added {
     @apply p-0
   }
+
   @apply p-[15px]
 }
 
@@ -272,18 +309,23 @@
 
         @apply bg-transparent border-0 text-nav-link-color p-0 cursor-pointer
       }
+
       line-height: 1.42859;
       @apply text-[14px] font-normal tracking-[-.016em] pt-[6px] px-[12px] pb-0
     }
+
     .chat-svg-container {
       .chat-svgicon {
         fill: currentColor;
         @apply text-nav-link-color inline-block m-[-6px]
       }
+
       @apply mt-[0]
     }
+
     @apply flex flex-row mx-[-7%] bg-white pt-[18px] px-[6.25%] pb-[14px] text-center flex-nowrap justify-center text-footer-category
   }
+
   @media only screen and (max-width: 733px) {
     @apply block
   }
@@ -307,4 +349,148 @@
 .modal-footnote {
   line-height: 1.33337;
   @apply mt-[2.5em] text-[12px] font-normal tracking-[-.01em] text-footer-text
+}
+
+.summary-inner-wrapper {
+  .summary-content {
+    &.disabled {
+      > div {
+        @apply opacity-[.32] pointer-events-none
+      }
+    }
+
+    .price-container {
+      .price-content {
+        .price-value {
+          .current-price {
+            @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+              line-height: 1.16667;
+              @apply text-[24px] tracking-[.009em]
+            }
+            line-height: 1.125;
+            @apply text-[32px] font-semibold tracking-[.004em]
+          }
+        }
+
+        @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+          line-height: 1.19048;
+          @apply text-[21px] tracking-[.001em]
+        }
+        line-height: 1.6667;
+        @apply text-[24px] font-semibold tracking-[.009em]
+      }
+
+      pointer-events: auto !important;
+      opacity: 1 !important;
+    }
+  }
+
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply mx-[-7%] px-[6.25%] border-b border-[#d2d2d7]
+  }
+  @apply bg-[#fbfbfd] p-[30px] mt-[30px]
+}
+
+.apple-care-container {
+  .apple-care-header {
+    .apple-care-summary {
+
+
+
+    }
+
+    letter-spacing: unset;
+    line-height: 1.47059;
+    @apply text-[17px] font-semibold text-footer-category m-0 p-0
+  }
+
+  &.disabled {
+    pointer-events: none;
+    outline: none;
+    @apply cursor-default
+  }
+
+  @apply my-[26px] mx-0 pt-[26px] border-t border-[#d2d2d7]
+}
+
+.svg-icon {
+
+}
+.summary-text {
+  .summary-details {
+    .details-title {
+      line-height: 1.42859;
+      @apply text-[14px] text-footer-category font-semibold tracking-[-.016em]
+    }
+
+    .apple-care-prices {
+      line-height: 1.42859;
+      @apply text-[14px] font-semibold tracking-[.015em] mt-0 mx-0 mb-[3px]
+    }
+
+    line-height: 1.42859;
+    @apply mt-0 mx-0 mb-[12px] pl-[26px] pr-0 block text-[14px] font-normal tracking-[.015em]
+  }
+
+  @apply basis-9/12 max-w-[75%] box-border m-0 p-0 min-w-0
+}
+
+.summary-link {
+  .apple-care-add-link {
+    line-height: 1.42859;
+    @apply text-nav-link-color text-[14px] font-semibold tracking-[.015em]
+  }
+  @apply basis-3/12 w-[15%] pt-[13px] text-right max-w-[25%] box-border m-0 p-0 min-w-0
+
+}
+
+
+.button-continue-box {
+  .continue-button {
+    .button-body {
+      &:disabled {
+        @apply opacity-[.32] cursor-default
+      }
+
+      @apply box-border block w-full rounded-[8px] text-center whitespace-nowrap text-[17px] bg-[#0071e3] text-white font-normal tracking-[-.022em]
+      py-[8px] px-[16px]
+    }
+    flex-grow: 2;
+    @apply mt-[23px]
+  }
+  flex-flow:row-reverse;
+  @apply flex items-center
+}
+
+.summary-footnote {
+  .footnote-container {
+    .footnote-tooltips {
+      .tooltip-button {
+        &:disabled {
+          @apply cursor-default
+        }
+        @apply text-nav-link-color block box-content border-none
+      }
+      vertical-align: top;
+      @apply inline-block relative left-[10px] ml-auto
+    }
+    .footnote-content {
+      .footnote-description {
+        @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+          @apply mr-[10px]
+        }
+        line-height: 1.42859;
+        font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+        @apply text-[14px] font-normal tracking-[-.016em] mt-0
+      }
+      .footnote-header {
+        line-height: 1.42859;
+        @apply text-[14px] font-semibold tracking-[-.016em] text-footer-category m-0 p-0
+      }
+    }
+    &.disabled {
+      @apply opacity-[.32]
+    }
+    @apply flex pt-[30px]
+  }
 }

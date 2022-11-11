@@ -1,5 +1,6 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {OptionsCollapseComponent} from "../../components/options-collapse/options-collapse.component";
+import {StickyHeaderComponent} from "../../../core/components/sticky-header/sticky-header.component";
 
 export interface ColorModel {
   id: number,
@@ -12,13 +13,13 @@ export interface StorageOption {
   size: string,
   selected: boolean,
   templateName: string,
-  price: string
+  price: number
 }
 
 export interface ConnectivityOption {
   id: number,
   connectivity: string;
-  price: string;
+  price: number;
   selected: boolean;
 }
 
@@ -33,6 +34,7 @@ export class BuyIpadComponent implements OnInit {
   @ViewChild('applePencilInner') applePencilInner?: ElementRef;
   @ViewChild('accessoriesCollapse') accessoriesCollapse?: OptionsCollapseComponent;
   @ViewChild('applePencilContent') applePencilContent?: ElementRef;
+  stickyHeader?: StickyHeaderComponent;
   currentStep: number = 1;
   selectedColor: string = 'landing';
   isColorSelected: boolean = false;
@@ -48,20 +50,29 @@ export class BuyIpadComponent implements OnInit {
   isApplePenAdded: boolean = false;
   isPenInfoVisible: boolean = true;
   isModalVisible: boolean = false;
+  isColorCollapsed: boolean = false;
+  isStorageCollapsed: boolean = false;
+  isConnectivityCollapsed: boolean = false;
+  isEngravingCollapsed: boolean = false;
+  isAddOnCollapsed: boolean = false;
+  price: number = 2099;
+  storagePrice: number = 0;
+  connectivityPrice: number = 0;
+  totalPrice: number = 0;
   storages: StorageOption[] = [
     {
       id: 1,
       size: '64',
       selected: false,
       templateName: 'sixtyFour',
-      price: '2,099'
+      price: 0
     },
     {
       id: 2,
       size: '256',
       selected: false,
       templateName: 'twoFiveSix',
-      price: '2.849'
+      price: 750
     }
   ]
   colors: ColorModel[] = [
@@ -90,13 +101,13 @@ export class BuyIpadComponent implements OnInit {
     {
       id: 1,
       connectivity: 'Wi-Fi',
-      price: '2,849.00',
+      price: 0,
       selected: false
     },
     {
       id: 2,
       connectivity: 'Wi-Fi + Cellular',
-      price: '3,599.00',
+      price: 750,
       selected: false
     }
   ]
@@ -116,7 +127,10 @@ export class BuyIpadComponent implements OnInit {
     })
     this.selectedColor = this.colors.find(color => color.id === event.id)?.color ?? '';
     this.isColorSelected = true;
+    this.isColorCollapsed = true;
     this.currentStep = 2;
+
+    this.scrollWindow('finishOption')
   }
 
 
@@ -128,23 +142,26 @@ export class BuyIpadComponent implements OnInit {
     })
     this.selectedStorage = option;
     this.isStorageSelected = true;
+    this.isStorageCollapsed = true;
     this.currentStep = 3;
+    this.storagePrice = (this.storages.find(storage => storage.id === id)?.price ?? 0);
+    this.scrollWindow('storageOption')
   }
 
 
   onChangeOptions(option: string) {
     switch (option) {
       case 'connectivity':
-        this.isConnectivitySelected = false;
+        this.isConnectivityCollapsed = false;
         break;
       case 'storage':
-        this.isStorageSelected = false;
+        this.isStorageCollapsed = false;
         break;
       case 'color':
-        this.isColorSelected = false;
+        this.isColorCollapsed = false;
         break;
       case 'personalize':
-        this.isEngravingOptionSelected = false;
+        this.isEngravingCollapsed = false;
         break;
     }
   }
@@ -157,7 +174,11 @@ export class BuyIpadComponent implements OnInit {
     })
     this.selectedConnectivity = option;
     this.isConnectivitySelected = true;
+    this.isConnectivityCollapsed = true;
     this.currentStep = 4;
+    this.connectivityPrice = this.connectivities.find(color => color.id === id)?.price || 0;
+
+    this.scrollWindow('connectivityOption')
   }
 
   onEngravingOptionSelected(event: any) {
@@ -165,7 +186,9 @@ export class BuyIpadComponent implements OnInit {
     const {option} = event;
     this.selectedEngravingOption = option;
     this.isEngravingOptionSelected = true;
+    this.isEngravingCollapsed = true;
     this.currentStep = 5;
+    this.scrollWindow('engravingOption')
   }
 
   appleGalleryNext() {
@@ -223,5 +246,21 @@ export class BuyIpadComponent implements OnInit {
 
   showModal() {
     this.isModalVisible = true;
+  }
+
+  scrollWindow(id: string) {
+    let headerHeight: number = 48;
+    setTimeout(() => {
+      let target = document.getElementById(id)?.offsetTop;
+      if (window.screen.width <= 833) {
+        headerHeight = 110;
+      }
+      window.scrollTo({top: (target || 0) - headerHeight, behavior: 'smooth'})
+    }, 500)
+
+  }
+
+  get totalAmount() {
+    return this.price + this.storagePrice + this.connectivityPrice;
   }
 }

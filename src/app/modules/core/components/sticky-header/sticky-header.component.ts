@@ -9,6 +9,7 @@ import {fromEvent, Subject, takeUntil} from "rxjs";
 export class StickyHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @Input() isNav: boolean = true;
+  price: number = 2099;
   isChevronTriggered: boolean = false;
   destroy$: Subject<void> = new Subject();
 
@@ -53,6 +54,10 @@ export class StickyHeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   destroySubscription() {
     this.destroy$.next();
+  }
+
+  updatePrice(price: number) {
+    this.price = price;
   }
 
 

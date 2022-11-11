@@ -17,7 +17,7 @@
   <div
     class="compare-box mx-auto grid grid-cols-5 gap-x-[34px] max-734:gap-x-2.5 max-1068:gap-x-[42px]
              max-1068:grid-cols-2">
-    <div class="border-b border-footer-border-color pb-[30px] " *ngFor="let product of products" [ngClass]="{'max-1068:col-span-2': product.imageName === 'ipad-mini'}">
+    <div class="border-b border-footer-border-color pb-[30px] " *ngFor="let product of products" [ngClass]="{'max-1068:col-span-2': product.imageName === 'ipad-mini' && !isStore}">
       <app-product-card [imageName]="product.imageName" [description]="product.description"
                         [colorOptions]="product.colorOptions" [generation]="product.generation"
                         [isNew]="product.isNew" [learnMoreVisible]="!isStore" [price]="product.price" [buttonTitle]="isStore ? '' :product.buttonTitle" [isHalf]="product.imageName === 'ipad-mini'"

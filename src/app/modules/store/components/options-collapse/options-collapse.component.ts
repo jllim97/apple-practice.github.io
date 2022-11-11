@@ -25,6 +25,7 @@ export class OptionsCollapseComponent implements OnInit, AfterViewInit {
   @Input() legend: string = 'Finish';
   @Input() selectedOption: string | TemplateRef<void>= 'Blue';
   @Input() categories: string = 'Finish';
+  @Input() isNoBorder: boolean = false;
   @Output() fadeHeaderClicked = new EventEmitter<string>();
 
   public get isCollapsed() {

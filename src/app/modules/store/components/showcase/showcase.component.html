@@ -53,10 +53,10 @@
           <svg  width="21" height="21" role="img" aria-hidden="true" class="close-svg"><path _ngcontent-eee-c43="" fill="none" d="M0 0h21v21H0z"></path><path _ngcontent-eee-c43="" d="M12.12 10l4.07-4.06a1.5 1.5 0 10-2.11-2.12L10 7.88 5.94 3.81a1.5 1.5 0 10-2.12 2.12L7.88 10l-4.07 4.06a1.5 1.5 0 000 2.12 1.51 1.51 0 002.13 0L10 12.12l4.06 4.07a1.45 1.45 0 001.06.44 1.5 1.5 0 001.06-2.56z"></path></svg>
         <span class="a11y">Close</span>
       </button>
-      <button *ngIf="currentIndex !== 0" (click)="prev()" class="zoom-previous arrow" [ngClass]="{'zoomed': isZoom && isReady}" ><</button>
+      <button *ngIf="currentIndex !== 0" (click)="prev()" class="zoom-previous arrow" [ngClass]="{'zoomed': isZoom && isReady}" ></button>
       <button *ngIf="currentIndex !== 4" (click)="next()" class="zoom-next arrow"  [ngClass]="{'zoomed': isZoom && isReady}">
         <span class="a11y">Next</span>
-        >
+
       </button>
       <ul class="zoomable-gallery-list " [ngClass]="{'zoomed': isZoom}">
         <li #item1 class="gallery-list-item w-[22.7872%]">

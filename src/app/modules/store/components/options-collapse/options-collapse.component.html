@@ -1,4 +1,4 @@
-<div #wrapper class="collapsible">
+<div #wrapper class="collapsible" [ngClass]="{'no-border': isNoBorder}">
   <div class="collapse-header-fade " [ngClass]="{'enter': isCollapsed, 'exited': !isCollapsed, 'is-first': isFirst}"
        (click)="onFadeHeaderClicked()">
     <div class="collapse-header-fade-text cursor-pointer">

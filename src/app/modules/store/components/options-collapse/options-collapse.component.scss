@@ -1,4 +1,7 @@
 .collapsible {
+  &.no-border {
+    @apply border-none
+  }
   @apply relative min-h-[66px] border-b border-footer-border-color
 }
 

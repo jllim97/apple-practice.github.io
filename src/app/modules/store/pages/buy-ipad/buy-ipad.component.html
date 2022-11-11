@@ -48,15 +48,17 @@
     </div>
     <div class="specification-selection pt-[23px] pb-0 px-0">
 
-      <app-options-collapse [isFirst]="true" [selectedOption]="selectedColor | titlecase"
-                            [isCollapsed]="isColorSelected"
+      <app-options-collapse id="finishOption" #finishOption [isFirst]="true"
+                            [selectedOption]="selectedColor | titlecase"
+                            [isCollapsed]="this.isColorCollapsed"
                             (fadeHeaderClicked)="onChangeOptions('color')">
         <div class="selection-group-wrapper">
           <ng-container [ngTemplateOutlet]="colorOptions"
                         [ngTemplateOutletContext]="{options: colors}"></ng-container>
         </div>
       </app-options-collapse>
-      <app-options-collapse [legend]="'Storage'" [isCollapsed]="isStorageSelected" [isDisable]="currentStep < 2"
+      <app-options-collapse id="storageOption" #storageOption [legend]="'Storage'"
+                            [isCollapsed]="this.isStorageCollapsed" [isDisable]="!this.isColorSelected"
                             (fadeHeaderClicked)="onChangeOptions('storage')"
                             [selectedOption]="selectedStorage" [isStorage]="true">
 
@@ -81,8 +83,9 @@
         </div>
       </app-options-collapse>
 
-      <app-options-collapse [legend]="'Connectivity'" [isCollapsed]="isConnectivitySelected"
-                            [isDisable]="currentStep < 3"
+      <app-options-collapse id="connectivityOption" #connectivityOption [legend]="'Connectivity'"
+                            [isCollapsed]="this.isConnectivityCollapsed"
+                            [isDisable]="!this.isStorageSelected"
                             (fadeHeaderClicked)="onChangeOptions('connectivity')"
                             [selectedOption]="selectedConnectivity">
 
@@ -107,8 +110,9 @@
         </div>
       </app-options-collapse>
 
-      <app-options-collapse [legend]="'Personalize your device.'" [isCollapsed]="isEngravingOptionSelected"
-                            [isDisable]="currentStep < 4"
+      <app-options-collapse id="engravingOption" #engravingOption [legend]="'Personalize your device.'"
+                            [isCollapsed]="this.isEngravingCollapsed"
+                            [isDisable]="!this.selectedConnectivity"
                             (fadeHeaderClicked)="onChangeOptions('personalize')"
                             [selectedOption]="selectedEngravingOption">
 
@@ -166,6 +170,7 @@
                             [legend]="'Apple Pencil, USB-C to Apple Pencil Adapter, and Magic Keyboard Folio.'"
                             [isDisable]="currentStep < 5"
                             [isCollapsed]="false"
+                            [isNoBorder]="true"
                             (fadeHeaderClicked)="onChangeOptions('add-on')"
                             [selectedOption]="selectedAddOn">
         <div class="extra-info">
@@ -263,9 +268,9 @@
                       </div>
                       <div class="button-container">
                         <button class="previous arrow" *ngIf="appleGalleryIndex > 0" (click)="appleGalleryPrevious()">
-                          <
+
                         </button>
-                        <button class="next arrow" *ngIf="appleGalleryIndex < 2" (click)="appleGalleryNext()"> >
+                        <button class="next arrow" *ngIf="appleGalleryIndex < 2" (click)="appleGalleryNext()">
                         </button>
                       </div>
                     </div>
@@ -366,6 +371,104 @@
           </div>
         </div>
       </app-options-collapse>
+
+      <div class="summary-wrapper">
+        <div class="summary-inner-wrapper">
+          <div class="summary-content" [ngClass]="{'disabled': !isEngravingOptionSelected}">
+            <div class="price-container">
+              <div class="price-content">
+                <div class="price-value">
+                  <div class="current-price">
+                    <span>
+                      <span class="opacity-100">
+                        From
+                        <span>RM {{totalAmount | number}}</span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accessories-wrapper">
+              <div>
+                <div class="apple-care-container">
+                  <h2 class="apple-care-header">Protect your new iPad</h2>
+                  <div class="row">
+                    <div class="row apple-care-summary">
+                      <div class="summary-text">
+                        <span class="absolute pt-[3px]">
+                         <svg viewBox="0 0 25 25"
+                              class="m-[-4px] fill-[#e30000] block"
+                              role="img" width="25px" height="25px"><path fill="none"
+                                                                          d="M0 0h25v25H0z"></path><path
+                           d="M18.4 8.146a3.5 3.5 0 00-1.675 2.948 3.411 3.411 0 002.075 3.129 8.151 8.151 0 01-1.063 2.2c-.662.953-1.354 1.905-2.407 1.905s-1.324-.612-2.537-.612c-1.183 0-1.6.632-2.567.632s-1.634-.882-2.407-1.965A9.5 9.5 0 016.2 11.255c0-3.008 1.955-4.6 3.881-4.6 1.023 0 1.875.672 2.517.672.612 0 1.564-.712 2.727-.712A3.648 3.648 0 0118.4 8.146zM12.68 6.442a1.152 1.152 0 01-.211-.02 1.376 1.376 0 01-.03-.281 3.362 3.362 0 01.852-2.1 3.464 3.464 0 012.276-1.173 1.486 1.486 0 01.03.311 3.458 3.458 0 01-.822 2.156 3 3 0 01-2.095 1.107z"></path></svg>
+                        </span>
+                        <div class="summary-details">
+                          <h3 class="details-title">
+                            <span>AppleCare Protection Plan for iPad</span>
+                          </h3>
+                          <div class="apple-care-prices">
+                            <div class="rc-prices rc-prices-default">
+                              <div class="rc-price">
+                                <div class="rc-prices-currentprice"><span class="rc-prices-fullprice"
+                                                                          data-autom="full-price">RM 279.00</span></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div><p>Get two years of service and support from iPad purchase date.</p></div>
+                        </div>
+                        <div>
+
+                        </div>
+                      </div>
+                      <div class="summary-link">
+                        <button [disabled]="!isEngravingOptionSelected">
+                          <span class="apple-care-add-link">Add</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-continue-box">
+              <div class="continue-button">
+                <button [disabled]="!isEngravingOptionSelected" class="button-body">
+                  Continue
+                </button>
+              </div>
+            </div>
+
+            <div class="summary-footnote">
+              <div class="footnote-container" [ngClass]="{'disabled': !isEngravingOptionSelected}">
+                <div class="footnote-content">
+                  <h2 class="footnote-header">
+                    Still deciding?
+                  </h2>
+                  <div class="footnote-description">
+                    Add this item to a list and easily come back to it later.
+                  </div>
+                </div>
+                <div class="footnote-tooltips">
+                  <button [disabled]="!isEngravingOptionSelected" class="tooptip-button">
+                    <svg width="35" height="35"
+                         class="block fill-nav-link-color pointer-events-none" role="img"
+                         aria-hidden="true">
+                      <path fill="none" d="M0 0h35v35H0z"></path>
+                      <path
+                        d="M21.952 6.433a2.157 2.157 0 011.567.481A2.228 2.228 0 0124 8.516v19.866a.709.709 0 01-.018.178.7.7 0 01-.058-.013 8.985 8.985 0 01-.757-.674l-4.866-4.901a1.111 1.111 0 00-1.602 0l-4.857 4.891a7.25 7.25 0 01-.754.676.145.145 0 01-.053.028h-.015a.681.681 0 01-.02-.185V8.516a2.228 2.228 0 01.48-1.602 2.158 2.158 0 011.568-.48h8.904m0-1h-8.904a3.077 3.077 0 00-2.278.776A3.144 3.144 0 0010 8.516v19.866a1.276 1.276 0 00.276.868.956.956 0 00.76.317 1.073 1.073 0 00.632-.213 8.377 8.377 0 00.874-.776l4.866-4.9a.115.115 0 01.184 0l4.866 4.9a10.454 10.454 0 00.868.77 1.048 1.048 0 00.639.219.956.956 0 00.76-.317 1.276 1.276 0 00.275-.868V8.516a3.144 3.144 0 00-.77-2.306 3.077 3.077 0 00-2.278-.776z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -415,7 +518,7 @@
       <app-options-box [isSpecs]="true" [option]="option.size" [isSelected]="option.selected" [id]="option.id"
                        (onClicked)="onStorageSelected($event)">
         <ng-container [ngTemplateOutlet]="sizeTemplate"
-                      [ngTemplateOutletContext]="{size: option.size, price: option.price}"></ng-container>
+                      [ngTemplateOutletContext]="{size: option.size, itemPrice: option.price}"></ng-container>
       </app-options-box>
     </div>
   </div>
@@ -427,22 +530,22 @@
       <app-options-box [isSpecs]="true" [option]="option.connectivity" [isSelected]="option.selected" [id]="option.id"
                        (onClicked)="onConnectivitySelected($event)">
         <ng-container [ngTemplateOutlet]="connectivityTemplate"
-                      [ngTemplateOutletContext]="{connectivity: option.connectivity, price: option.price}"></ng-container>
+                      [ngTemplateOutletContext]="{connectivity: option.connectivity, itemPrice: option.price}"></ng-container>
       </app-options-box>
     </div>
   </div>
 </ng-template>
 
-<ng-template #sizeTemplate let-size="size" let-price="price">
+<ng-template #sizeTemplate let-size="size" let-itemPrice="itemPrice">
   <span class="selector-title">{{size}}<small>GB<sup>1</sup></small></span>
   <span class="label-small"> <span class="fullPrice">From <span
-    class="whitespace-nowrap">RM {{price}}</span></span></span>
+    class="whitespace-nowrap">RM {{price + itemPrice | number}}</span></span></span>
 </ng-template>
 
-<ng-template #connectivityTemplate let-connectivity="connectivity" let-price="price">
+<ng-template #connectivityTemplate let-connectivity="connectivity" let-itemPrice="itemPrice">
   <span class="selector-title normal">{{connectivity}}</span>
   <span class="label-small">  <span
-    class="whitespace-nowrap">RM {{price}}</span></span>
+    class="whitespace-nowrap">RM {{(price + storagePrice + itemPrice)| number}}</span></span>
 </ng-template>
 
 <app-modal [isVisible]="isModalVisible" (isClosed)="this.isModalVisible = false">
