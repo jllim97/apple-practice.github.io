@@ -137,7 +137,7 @@ svg:not(:root) {
   @media only screen and (max-width: 1068px) {
     line-height: 1.0625;
     font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    margin: calc(30px *-0.5) calc(30px*-1);
+    margin: 0;
 
     @apply text-[64px] tracking-[-0.009em] py-[100px] px-0
   }
