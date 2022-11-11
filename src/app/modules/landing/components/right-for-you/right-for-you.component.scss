@@ -25,3 +25,14 @@
 
 }
 
+.store-right-for-you {
+  &:before {
+    content: ' ';
+    @apply table
+  }
+  @media only screen and (max-width: 1023px) and (max-width: 736px) {
+    @apply w-[87.5%]
+  }
+  @apply relative mx-auto w-[980px]
+}
+

@@ -142,3 +142,65 @@
 .description-ipad-pro {
   //width: 167px;
 }
+
+.device-content {
+  line-height: 1.33337;
+  grid-auto-rows: auto;
+  grid-column-gap: 33px;
+  @apply text-[12px] font-normal tracking-[-.01em] text-center mx-auto pb-[80px] grid
+}
+
+.device-wrapper {
+  grid-row: 1;
+  grid-column: 1;
+  @apply pt-[60px] pb-0
+}
+
+.device-image {
+  @media only screen and (max-width: 1023px) and (max-device-width: 736px) {
+    @apply min-h-[101px] mb-[28px]
+  }
+  @apply min-h-[175px] flex justify-end items-center flex-col mb-[14px] cursor-pointer
+}
+
+.swatch-options {
+  @media only screen and (max-width: 1028px) and (max-device-width: 736px){
+    @apply pt-[24px] px-0 pb-0
+  }
+  @apply h-[13px] w-auto mx-auto my-0 pt-[22px] pb-[18px] px-0
+}
+
+
+.store-card {
+  .price-content {
+    @media only screen and (max-width: 1028px) and (max-device-width: 736px){
+      line-height: 1.33337;
+      @apply text-[12px] tracking-[-.01em] mt-[6px] mx-[5px] mb-[35px]
+    }
+
+      line-height: 1.42859;
+    @apply  mt-[8px] mx-0 mb-[40px] text-[14px] font-normal tracking-[-0.016em] pb-[35px] border-b border-[#d2d2d7]
+  }
+  .description {
+    @media only screen and (max-width: 1028px) and (max-device-width: 736px){
+      line-height: 1.28577;
+      @apply text-[14px] tracking-[-.016em] min-h-[80px]
+    }
+    line-height: 1.23536;
+    @apply text-[17px] font-normal min-h-[100px] tracking-[-.022em] mt-[0.8em]
+  }
+  .normal-display-text {
+    line-height: 1.33337;
+    @apply w-full box-border m-0 p-0 min-w-0 text-[12px] font-normal tracking-[-.01em] text-center mx-auto
+  }
+  .display-text {
+    line-height: 1.19048;
+    @apply w-full text-[21px] font-semibold box-border m-0 p-0 min-w-0 tracking-[.011em]
+  }
+  .chip-image {
+    @media only screen and (max-width: 1028px) and (max-device-width: 736px){
+      @apply pt-[40px] px-0 pb-[10px]
+    }
+    @apply pt-[52px] px-0 pb-[10px]
+  }
+}

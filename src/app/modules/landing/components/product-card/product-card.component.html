@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center h-full" >
+<div class="flex flex-col items-center h-full" *ngIf="!isStore">
   <div class="flex flex-col items-center" [ngClass]="isHalf ? 'max-734:w-1/2' : ''">
     <div class="image-wrapper flex justify-end items-center flex-col mt-0 mb-[23px]
      max-1068:mt-[30px] max-1068:mb-[16px] max-734:mt-[7px] max-734:mb-[17px] min-h-[191px] max-734:min-h-[139px]">
@@ -20,7 +20,8 @@
       </h3>
     </div>
     <div class="description-wrapper text-center" [ngClass]="generation ? 'mt-[5px]' : 'mt-[32px]'">
-      <p class="text-[14px] max-734:text-[12px] description font-semibold mx-auto" [ngClass]="'description-' + imageName">
+      <p class="text-[14px] max-734:text-[12px] description font-semibold mx-auto"
+         [ngClass]="'description-' + imageName">
         {{description}}
       </p>
     </div>
@@ -43,3 +44,48 @@
     </div>
   </div>
 </div>
+
+<ng-container *ngIf="isStore">
+  <div class="card-wrapper store-card">
+    <div class="device-content device-wrapper">
+      <div class="device-image">
+        <img width="159" height="139" [src]="'../../../../../assets/images/store-' + imageName + '.jpeg'" alt>
+        <img class="swatch-options" [src]="'../../../../../assets/images/store-' + imageName + '-options.jpeg'" alt>
+      </div>
+      <div class="product-name text-center font-semibold tracking-[0.009em]" [ngClass]="{'mb-[7px]': generation}">
+        <h3 class="relative text-[24px] max-734:text-[21px]">
+          <span class="text-[#bf4800] new-text text-xs font-normal tracking-[-0.011em]">{{isNew ? 'New' : ''}}</span>
+          {{productName}}
+          <span
+            class="generation block mt-[1px] text-[14px] max-734:text-[12px] tracking-[-0.008em] font-semibold tagline">{{generation ?? ''}}</span>
+        </h3>
+      </div>
+      <div class="description-wrapper text-center" [ngClass]="generation ? 'mt-[5px]' : 'mt-[32px]'">
+        <p class="text-[14px] max-734:text-[12px] description font-semibold mx-auto"
+           [ngClass]="'description-' + imageName">
+          {{description}}
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center mt-auto">
+      <div class="price-wrapper w-full text-center max-734:mt-[11px] mt-[7px] ">
+        <p class="price-content">
+          <span>{{price}}</span>
+        </p>
+      </div>
+    </div>
+    <div class="row text-center display-specs">
+      <p class="display-text">12.9" or 11"</p>
+      <p class="normal-display-text">Liquid Retina XDR display²</p>
+      <p class="normal-display-text">Liquid Retina display²</p>
+      <p class="normal-display-text">ProMotion technology and True Tone</p>
+    </div>
+    <div class="row text-center items-center chip">
+      <div class="w-full">
+        <img class="chip-image inline-block" src="../../../../../assets/images/m2-chip.jpeg" alt>
+      </div>
+      <p class="normal-display-text">M2 chip</p>
+
+    </div>
+  </div>
+</ng-container>
