@@ -20,14 +20,14 @@
       <div class="hero-text relative box-border max-734:basis-full max-734:max-w-full">
         <div class="hero-title-wrapper">
           <div class="logo absolute inline-block mx-auto my-0">
-            <h1 class="logo-title hidden text-footer-category" [ngClass]="{'hidden': hideAnimationTitle}">
-              <span class="title-blue inline-block max-1068:hidden" [@flyUpDown]>iPad</span>
-              <span class="title-blue hidden max-small:hidden max-1068:inline-block" [@flyUpDown-medium]>iPad</span>
-              <span class="title-blue hidden max-small:inline-block" [@flyUpDown-small]>iPad</span>
+            <h1 class="logo-title hidden text-footer-category"  *ngIf="isReady" [ngClass]="{'hidden': hideAnimationTitle}">
+              <span class="title-blue inline-block max-1068:hidden"  *ngIf="isReady" [@flyUpDown]>iPad</span>
+              <span class="title-blue hidden max-small:hidden max-1068:inline-block"  *ngIf="isReady" [@flyUpDown-medium]>iPad</span>
+              <span class="title-blue hidden max-small:inline-block"  *ngIf="isReady" [@flyUpDown-small]>iPad</span>
               <span class="title-pink">iPad</span>
-              <span class="title-yellow inline-block max-1068:hidden" [@flyDownUp] (@flyDownUp.done)="triggerTitle($event)">iPad</span>
-              <span class="title-yellow hidden max-small:hidden max-1068:inline-block" [@flyDownUp-medium] (@flyDownUp-medium.done)="triggerTitle($event)">iPad</span>
-              <span class="title-yellow hidden max-small:inline-block" [@flyDownUp-small] (@flyDownUp-small.done)="triggerTitle($event)">iPad</span>
+              <span class="title-yellow inline-block max-1068:hidden"  *ngIf="isReady" [@flyDownUp] (@flyDownUp.done)="triggerTitle($event)">iPad</span>
+              <span class="title-yellow hidden max-small:hidden max-1068:inline-block"  *ngIf="isReady" [@flyDownUp-medium] (@flyDownUp-medium.done)="triggerTitle($event)">iPad</span>
+              <span class="title-yellow hidden max-small:inline-block"  *ngIf="isReady" [@flyDownUp-small] (@flyDownUp-small.done)="triggerTitle($event)">iPad</span>
             </h1>
 <!--            <picture class="logo-image" data-lazy="" data-download-area-keyframe="{&quot;start&quot;: &quot;t - 200vh&quot;, &quot;end&quot;: &quot;b + 100vh&quot;, &quot;disabledWhen&quot;: [&quot;enhanced&quot;]}" aria-hidden="true" data-picture-loaded="">-->
 <!--              <img src="../../../../assets/images/logo_ipad.png"  alt="logo ipad"/>-->

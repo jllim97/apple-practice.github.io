@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {
   animate,
   AnimationEvent,
-  AnimationStateMetadata,
   keyframes,
   state,
   style,
@@ -150,12 +149,19 @@ import {
 
   ]
 })
-export class SectionHeroComponent implements OnInit {
+export class SectionHeroComponent implements OnInit, AfterViewInit {
 
-  value:number = 0;
-  hideAnimationTitle:boolean = false;
+  value: number = 0;
+  hideAnimationTitle: boolean = false;
   hideTitle: boolean = true;
-  constructor() { }
+  isReady = false;
+
+  constructor() {
+  }
+
+  ngAfterViewInit(): void {
+    this.isReady = true;
+  }
 
   ngOnInit(): void {
     // this.incrementTimer();
@@ -169,7 +175,7 @@ export class SectionHeroComponent implements OnInit {
   incrementTimer() {
     const interval = setInterval(() => {
       this.value += 4;
-      if(this.value >= 55) {
+      if (this.value >= 55) {
         clearInterval(interval)
         setTimeout(() => {
           this.decrementTimer();
@@ -180,8 +186,8 @@ export class SectionHeroComponent implements OnInit {
 
   decrementTimer() {
     const interval = setInterval(() => {
-      this.value -=4;
-      if(this.value <= 0) {
+      this.value -= 4;
+      if (this.value <= 0) {
         this.value = 0;
         clearInterval(interval)
         setTimeout(() => {
