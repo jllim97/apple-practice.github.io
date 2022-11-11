@@ -92,7 +92,7 @@ close
 <ng-template #navLink let-title="title" let-link="link" let-isIcon="isIcon">
 
   <li class="logo-item first:pl-0 last:pr-0 px-[8px] opacity-80 hover:opacity-100">
-    <a href="/my/" [ngClass]="'link-' + title"
+    <a href="#" [ngClass]="'link-' + title"
        class="logo-link"><span>{{title}}</span></a></li>
 
 </ng-template>
@@ -100,7 +100,7 @@ close
 <ng-template #mobileLink let-title="title" let-link="link" let-isIcon="isIcon">
 
   <li *ngIf="!toExclude.includes(title)" class="logo-item" [ngClass]="{'checked': isCloseVisible}">
-    <a href="/my/" [ngClass]="'link-' + title"
+    <a href="#" [ngClass]="'link-' + title"
        class="logo-link"><span>{{title}}</span></a></li>
 
 </ng-template>

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CoreModule} from "./modules/core/core.module";
+import {APP_BASE_HREF} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import {CoreModule} from "./modules/core/core.module";
     BrowserModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  exports: [
+    CoreModule
+  ],
+  providers: [{provide: APP_BASE_HREF, useValue: '/jl-pixel-perfect/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

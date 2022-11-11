@@ -72,7 +72,7 @@ export class ElementIsInDirective implements OnInit, AfterViewInit, OnDestroy{
     this.subject$.pipe(delay(this.intersectionDebounce), filter(Boolean))
       .subscribe(async({entry, observer}) => {
 
-        const target = entry.target as HTMLElement;
+        const target = entry?.target as HTMLElement;
         const isStillVisible = await this.isVisible(target);
         if(isStillVisible) {
           this.visibilityChanged.emit(target)

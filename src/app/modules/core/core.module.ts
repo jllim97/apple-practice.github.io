@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {HeaderNavComponent} from "./components/header-nav/header-nav.component";
 import {MobileDrawerComponent} from "./components/mobile-drawer/mobile-drawer.component";
 import {StickyHeaderComponent} from "./components/sticky-header/sticky-header.component";
-import {RouterModule} from "@angular/router";
+import { RouterModule} from "@angular/router";
 import { OverviewLayoutComponent } from './layout/overview-layout/overview-layout.component';
 import { StoreLayoutComponent } from './layout/store-layout/store-layout.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -30,6 +30,8 @@ import { OptionBoxComponent } from './components/option-box/option-box.component
     OptionBoxComponent
   ],
   exports: [
+    CommonModule,
+    RouterModule
   ],
   imports: [
     CommonModule,
