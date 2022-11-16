@@ -20,7 +20,7 @@ import {APP_BASE_HREF} from "@angular/common";
   exports: [
     CoreModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/jl-pixel-perfect/'}],
+  providers: [{provide: APP_BASE_HREF, useValue: '/apple-clone/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
